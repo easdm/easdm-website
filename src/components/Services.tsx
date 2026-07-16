@@ -33,25 +33,21 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="text-xl md:text-2xl font-semibold mb-4">Services</h2>
-        <p className="text-sm text-slate-600 mb-8">
-          From strategic consulting to hands-on engineering, EAS LLC delivers secure,
-          scalable solutions across cloud, identity, endpoint, and applications.
-        </p>
+    <section id="services" className="bg-transparent">
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <div className="mb-10 max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Services</p>
+          <h2 className="text-3xl font-semibold text-white md:text-4xl">Secure transformation at enterprise speed.</h2>
+        </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <article
               key={service.title}
-              className="rounded-lg border border-slate-200 p-5 hover:border-[#0066CC] hover:shadow-md transition"
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/10"
             >
-              <h3 className="text-sm font-semibold mb-2">{service.title}</h3>
-              <p className="text-xs text-slate-600 mb-4">{service.description}</p>
-              <a
-                href="#"
-                className="text-xs font-semibold text-[#0066CC] hover:text-[#009BFF]"
-              >
+              <h3 className="mb-3 text-lg font-semibold text-white">{service.title}</h3>
+              <p className="mb-4 text-sm text-slate-300">{service.description}</p>
+              <a href="#" className="text-sm font-semibold text-cyan-300 hover:text-cyan-200">
                 Learn more
               </a>
             </article>
