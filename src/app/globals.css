@@ -17,26 +17,11 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #02060f 0%, #071325 45%, #0a1425 100%);
+  background:
+    radial-gradient(circle at top left, rgba(0, 102, 204, 0.2), transparent 30%),
+    linear-gradient(135deg, #040816 0%, #071527 50%, #091b2d 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(11, 132, 255, 0.18), transparent 25%),
-    radial-gradient(circle at 85% 10%, rgba(8, 186, 255, 0.12), transparent 30%),
-    radial-gradient(circle at 50% 100%, rgba(0, 102, 204, 0.15), transparent 40%);
-  z-index: 0;
-}
-
-main, section, footer {
-  position: relative;
-  z-index: 1;
 }
 
 ::selection {

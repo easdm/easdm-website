@@ -26,7 +26,7 @@ export default function FeaturedInsights() {
           {insights.map((item) => (
             <article
               key={item.title}
-              className="rounded-[1.25rem] border border-white/10 bg-[#07111f]/90 p-5 shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40"
+              className="rounded-3xl border border-white/10 bg-slate-900/60 p-5 backdrop-blur transition hover:border-cyan-400/40 hover:bg-cyan-400/10"
             >
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
                 {item.label}
