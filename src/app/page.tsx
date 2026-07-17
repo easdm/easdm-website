@@ -23,6 +23,27 @@ export default function Home() {
     }
   }, []);
 
+  // Force scroll to top on mount to override browser scroll restoration
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Lock body scrolling while video is playing
+  useEffect(() => {
+    if (!minimized && !reduceMotion) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [minimized, reduceMotion]);
+
   return (
     <main className="min-h-screen bg-white text-slate-900 relative">
       {/* Hero Video Container (Smooth Fade + Shrink + Disappear) */}
