@@ -217,8 +217,16 @@ body {
   }
 }
 
-/* Hide global header layout while homepage video intro is active */
-.intro-active header {
-  display: none !important;
+/* Custom slow fade-in animation */
+@keyframes fade-in-slow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+.animate-fade-in-slow {
+  animation: fade-in-slow 1.2s ease-out forwards;
+}
