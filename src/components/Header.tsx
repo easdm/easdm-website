@@ -46,9 +46,9 @@ export default function Header() {
               </linearGradient>
             </defs>
           </svg>
-          <div className="flex flex-col text-left">
-            <span className="text-lg font-black tracking-tight text-white leading-none">EAS</span>
-            <span className="text-[9px] font-bold tracking-wider text-slate-300 uppercase mt-1 leading-none">
+          <div className="flex flex-col text-left justify-center">
+            <span className="text-lg font-black tracking-tight text-white leading-tight">EAS</span>
+            <span className="text-[9px] font-bold tracking-wider text-slate-300 uppercase mt-0.5 leading-normal">
               Enterprise Application Solutions
             </span>
           </div>
