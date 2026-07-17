@@ -13,6 +13,7 @@ import Careers from "@/components/Careers";
 export default function Home() {
   const [minimized, setMinimized] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Home() {
             ref={videoRef}
             src="/intro-video.mp4"
             autoPlay
-            muted
+            muted={isMuted}
             playsInline
             onEnded={() => setMinimized(true)}
             className={`w-full h-full object-cover transition-opacity duration-[1200ms] ${
@@ -55,24 +56,43 @@ export default function Home() {
           </div>
         )}
 
-        {/* Sound Toggle Button overlay */}
+        {/* Sound Toggle Button overlay (Placed prominently at top-right below layout Header) */}
         {!minimized && !reduceMotion && (
           <button
             onClick={() => {
               if (videoRef.current) {
-                videoRef.current.muted = !videoRef.current.muted;
+                const nextMuted = !isMuted;
+                setIsMuted(nextMuted);
+                videoRef.current.muted = nextMuted;
+                videoRef.current.currentTime = 0;
+                videoRef.current.play().catch((err) => console.log("Play failed:", err));
               }
             }}
-            className="absolute bottom-6 right-6 z-30 bg-black/50 hover:bg-black/70 text-white px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer"
+            className="absolute top-24 right-6 md:right-12 z-30 bg-black/60 hover:bg-[#0066CC] border border-white/20 hover:border-[#009BFF] text-white px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 shadow-lg flex items-center gap-2 cursor-pointer"
           >
-            Toggle Sound
+            {isMuted ? (
+              <>
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                </svg>
+                Unmute & Restart Video
+              </>
+            ) : (
+              <>
+                <svg className="w-3.5 h-3.5 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+                Mute & Restart Video
+              </>
+            )}
           </button>
         )}
       </div>
 
       {/* Homepage Content Fade‑In */}
       <div
-        className={`transition-opacity duration-[900ms] ${
+        className={`transition-opacity duration-900 ${
           minimized ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
