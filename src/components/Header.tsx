@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,10 +46,9 @@ export default function Header() {
               </linearGradient>
             </defs>
           </svg>
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-black tracking-tight text-white">EAS</span>
-            <div className="w-[1px] h-4 bg-white/20 self-center hidden sm:block" />
-            <span className="text-[10px] font-bold tracking-widest text-slate-300 uppercase hidden sm:block">
+          <div className="flex flex-col text-left">
+            <span className="text-lg font-black tracking-tight text-white leading-none">EAS</span>
+            <span className="text-[9px] font-bold tracking-wider text-slate-350 uppercase mt-1 leading-none">
               Enterprise Application Solutions
             </span>
           </div>
@@ -56,32 +56,36 @@ export default function Header() {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="/#services" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+          <Link href="/#services" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
             Services
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </a>
-          <a href="/#industries" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+          </Link>
+          <Link href="/#industries" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
             Industries
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </a>
-          <a href="/about" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+          </Link>
+          <Link href="/case-studies/coddleme" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+            Case Studies
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+          </Link>
+          <Link href="/about" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
             About
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </a>
-          <a href="/contact" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+          </Link>
+          <Link href="/contact" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
             Contact
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </a>
+          </Link>
         </nav>
 
         {/* Action Button */}
         <div className="flex items-center gap-4">
-          <a 
+          <Link 
             href="/contact" 
             className="rounded-md bg-white/10 hover:bg-[#0066CC] border border-white/20 hover:border-[#009BFF] px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#0066CC]/20"
           >
             Get in Touch
-          </a>
+          </Link>
         </div>
       </div>
     </header>
