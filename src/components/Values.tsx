@@ -16,24 +16,34 @@ const values = [
   },
 ];
 
+import ScrollReveal from "./ScrollReveal";
+
 export default function Values() {
   return (
     <section className="bg-[#F3F4F6]">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="text-xl md:text-2xl font-semibold mb-4">Our Commitment</h2>
-        <p className="text-sm text-slate-600 mb-8">
-          We build secure, scalable, and sustainable digital ecosystems that empower
-          organizations and protect users.
-        </p>
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <ScrollReveal animation="slide-up">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">Our Commitment</h2>
+          <p className="text-base text-slate-600 mb-12 max-w-2xl">
+            We build secure, scalable, and sustainable digital ecosystems that empower
+            organizations and protect users.
+          </p>
+        </ScrollReveal>
+        
         <div className="grid gap-6 md:grid-cols-3">
-          {values.map((value) => (
-            <div
-              key={value.title}
-              className="rounded-lg bg-white p-5 shadow-sm hover:shadow-md transition"
+          {values.map((value, index) => (
+            <ScrollReveal 
+              key={value.title} 
+              animation="scale-up" 
+              className={`delay-${index * 100}`}
             >
-              <h3 className="text-sm font-semibold mb-2">{value.title}</h3>
-              <p className="text-xs text-slate-600">{value.description}</p>
-            </div>
+              <div
+                className="rounded-xl bg-white p-6 border border-slate-100 card-interactive shadow-sm h-full"
+              >
+                <h3 className="text-base font-bold text-slate-900 mb-3">{value.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{value.description}</p>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

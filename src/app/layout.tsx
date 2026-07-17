@@ -12,6 +12,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
 export const metadata: Metadata = {
   title: "EAS LLC | Enterprise Application Solutions",
   description: "Modern cloud, identity, endpoint, and application engineering for the digital enterprise.",
@@ -27,7 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-white text-slate-900">
+        <Header />
+        <div className="flex-grow">{children}</div>
+        <Footer />
+      </body>
     </html>
   );
 }

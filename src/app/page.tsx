@@ -6,7 +6,6 @@ import CaseStudies from "@/components/CaseStudies";
 import Mission from "@/components/Mission";
 import Values from "@/components/Values";
 import Careers from "@/components/Careers";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
       <Mission />
       <Values />
       <Careers />
-      <Footer />
     </main>
   );
 }

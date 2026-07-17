@@ -12,9 +12,9 @@ export default function Footer() {
         <div>
           <h4 className="text-xs font-semibold mb-2 text-white">Navigation</h4>
           <ul className="space-y-1 text-xs">
-            <li><a href="#services" className="hover:text-white">Services</a></li>
-            <li><a href="#industries" className="hover:text-white">Industries</a></li>
-            <li><a href="#contact" className="hover:text-white">Contact</a></li>
+            <li><a href="/#services" className="hover:text-white">Services</a></li>
+            <li><a href="/#industries" className="hover:text-white">Industries</a></li>
+            <li><a href="/contact" className="hover:text-white">Contact</a></li>
           </ul>
         </div>
         <div>
