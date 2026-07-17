@@ -56,10 +56,9 @@ export default function CaseStudies() {
                 </div>
                 <Link
                   href={item.href}
-                  className="text-xs font-semibold text-[#0066CC] hover:text-[#009BFF] inline-flex items-center gap-1 group transition-colors"
+                  className="text-xs font-semibold text-[#0066CC] hover:text-[#009BFF]"
                 >
-                  Read more
-                  <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                  Read more &rarr;
                 </Link>
               </article>
             </ScrollReveal>
