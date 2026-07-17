@@ -7,7 +7,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal animation="slide-up">
             <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-4">
-              Contact EAS LLC
+              Contact EAS
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
               Ready to discuss cloud, identity, endpoint, or bespoke application
