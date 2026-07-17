@@ -10,7 +10,7 @@ export default function RetailIndustryPage() {
               Retail
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
-              EAS LLC builds secure architectures and endpoint environments for retail networks, protecting point-of-sale data and transaction flows.
+              EAS builds secure architectures and endpoint environments for retail networks, protecting point-of-sale data and transaction flows.
             </p>
           </ScrollReveal>
         </div>

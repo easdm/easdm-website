@@ -28,7 +28,7 @@ export default function BandAidCaseStudyPage() {
           <ScrollReveal animation="slide-up" className="delay-200">
             <h2 className="text-xl font-bold text-slate-900 mb-2">Solution</h2>
             <p className="leading-relaxed">
-              EAS LLC engineered a responsive website featuring integrated lead capture workflows and customized booking scheduling widgets. We deployed the stack to a cost-effective cloud provider and built structured automation triggers for email notifications.
+              EAS engineered a responsive website featuring integrated lead capture workflows and customized booking scheduling widgets. We deployed the stack to a cost-effective cloud provider and built structured automation triggers for email notifications.
             </p>
           </ScrollReveal>
 

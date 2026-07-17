@@ -28,7 +28,7 @@ export default function TwcEnterpriseCaseStudyPage() {
           <ScrollReveal animation="slide-up" className="delay-200">
             <h2 className="text-xl font-bold text-slate-900 mb-2">Solution</h2>
             <p className="leading-relaxed">
-              EAS LLC restructured their identity tenant using Microsoft Entra ID and Conditional Access policies. We configured Intune and Windows Autopilot for device management and designed automated MSI/IntuneWin packaging pipelines for software deployment.
+              EAS restructured their identity tenant using Microsoft Entra ID and Conditional Access policies. We configured Intune and Windows Autopilot for device management and designed automated MSI/IntuneWin packaging pipelines for software deployment.
             </p>
           </ScrollReveal>
 

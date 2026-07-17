@@ -10,7 +10,7 @@ export default function M365ModernWorkplacePage() {
               Microsoft 365 Modern Workplace
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
-              EAS LLC delivers modern collaboration environments using Microsoft 365, ensuring security and seamless compliance.
+              EAS delivers modern collaboration environments using Microsoft 365, ensuring security and seamless compliance.
             </p>
           </ScrollReveal>
         </div>

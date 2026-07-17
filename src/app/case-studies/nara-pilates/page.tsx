@@ -28,7 +28,7 @@ export default function NaraPilatesCaseStudyPage() {
           <ScrollReveal animation="slide-up" className="delay-200">
             <h2 className="text-xl font-bold text-slate-900 mb-2">Solution</h2>
             <p className="leading-relaxed">
-              EAS LLC created a custom web interface using Next.js, integrating scheduling systems and payment integrations. We emphasized a clean layout with custom animations reflecting the studio’s design-focused brand.
+              EAS created a custom web interface using Next.js, integrating scheduling systems and payment integrations. We emphasized a clean layout with custom animations reflecting the studio’s design-focused brand.
             </p>
           </ScrollReveal>
 

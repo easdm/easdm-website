@@ -16,7 +16,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "EAS LLC | Enterprise Application Solutions",
+  title: "EAS | Enterprise Application Solutions",
   description: "Modern cloud, identity, endpoint, and application engineering for the digital enterprise.",
 };
 

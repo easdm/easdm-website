@@ -10,7 +10,7 @@ export default function CustomDevelopmentPage() {
               Custom Web & Mobile Development
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
-              EAS LLC engineers custom high-performance web applications and native mobile applications leveraging modern serverless architectures.
+              EAS engineers custom high-performance web applications and native mobile applications leveraging modern serverless architectures.
             </p>
           </ScrollReveal>
         </div>

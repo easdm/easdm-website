@@ -7,7 +7,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal animation="slide-up">
             <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-4">
-              About EAS LLC
+              About EAS
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
               Enterprise Application Solutions focused on cloud, identity,
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <ScrollReveal animation="slide-up" className="delay-200">
             <h2 className="text-xl font-bold text-slate-900 mb-2">Founder</h2>
             <p className="leading-relaxed">
-              EAS LLC is led by an architect with deep experience in Microsoft
+              EAS is led by an architect with deep experience in Microsoft
               365, Azure, Entra ID, Intune, endpoint management, and custom web
               and mobile development (specializing in full-stack serverless systems).
             </p>

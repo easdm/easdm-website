@@ -35,7 +35,7 @@ export default function CaseStudies() {
         <ScrollReveal animation="slide-up">
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">Client Success Stories</h2>
           <p className="text-base text-slate-600 mb-12 max-w-2xl">
-            Real-world projects that demonstrate EAS LLC’s approach to secure, scalable,
+            Real-world projects that demonstrate EAS’s approach to secure, scalable,
             and modern solutions.
           </p>
         </ScrollReveal>

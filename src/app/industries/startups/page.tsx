@@ -10,7 +10,7 @@ export default function StartupsIndustryPage() {
               Startups
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
-              EAS LLC delivers scalable cloud-native architectures and fast-deploying custom application stacks to turn startup ideas into scalable products.
+              EAS delivers scalable cloud-native architectures and fast-deploying custom application stacks to turn startup ideas into scalable products.
             </p>
           </ScrollReveal>
         </div>

@@ -30,7 +30,7 @@ export default function CoddleMeCaseStudyPage() {
           <ScrollReveal animation="slide-up" className="delay-200">
             <h2 className="text-xl font-bold text-slate-900 mb-2">Solution</h2>
             <p className="leading-relaxed">
-              EAS LLC designed and implemented a full-stack solution using
+              EAS designed and implemented a full-stack solution using
               Next.js SSR, Firebase Hosting, App Hosting, Firestore, and native
               Android (Kotlin/Compose) and iOS (Swift/SwiftUI) clients. We integrated a unified WebRTC signaling layer over WebSockets and provisioned custom Google Cloud STUN/TURN servers to guarantee connection rates.
             </p>

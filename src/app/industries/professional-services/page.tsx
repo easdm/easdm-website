@@ -10,7 +10,7 @@ export default function ProfessionalServicesIndustryPage() {
               Professional Services
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
-              EAS LLC delivers modern cloud collaboration workspaces and secure client access controls for consulting, finance, and legal firms.
+              EAS delivers modern cloud collaboration workspaces and secure client access controls for consulting, finance, and legal firms.
             </p>
           </ScrollReveal>
         </div>

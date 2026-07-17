@@ -47,7 +47,7 @@ export default function Services() {
         <ScrollReveal animation="slide-up">
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">Services</h2>
           <p className="text-base text-slate-600 mb-12 max-w-2xl">
-            From strategic consulting to hands-on engineering, EAS LLC delivers secure,
+            From strategic consulting to hands-on engineering, EAS delivers secure,
             scalable solutions across cloud, identity, endpoint, and applications.
           </p>
         </ScrollReveal>

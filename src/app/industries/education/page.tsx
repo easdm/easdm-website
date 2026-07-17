@@ -10,7 +10,7 @@ export default function EducationIndustryPage() {
               Education
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
-              EAS LLC engineers modern, secure collaboration spaces and endpoint structures for schools and educational systems.
+              EAS engineers modern, secure collaboration spaces and endpoint structures for schools and educational systems.
             </p>
           </ScrollReveal>
         </div>

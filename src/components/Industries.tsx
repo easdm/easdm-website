@@ -19,7 +19,7 @@ export default function Industries() {
         <ScrollReveal animation="slide-up">
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">Industries We Serve</h2>
           <p className="text-base text-slate-600 mb-10 max-w-2xl">
-            EAS LLC supports organizations across sectors that rely on secure, modern
+            EAS supports organizations across sectors that rely on secure, modern
             digital infrastructure.
           </p>
         </ScrollReveal>

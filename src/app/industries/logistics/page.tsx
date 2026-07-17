@@ -10,7 +10,7 @@ export default function LogisticsIndustryPage() {
               Logistics
             </h1>
             <p className="text-sm md:text-base text-slate-200 max-w-3xl leading-relaxed">
-              EAS LLC engineers high-performance cloud databases and secure endpoint platforms for global supply chains and transportation systems.
+              EAS engineers high-performance cloud databases and secure endpoint platforms for global supply chains and transportation systems.
             </p>
           </ScrollReveal>
         </div>
