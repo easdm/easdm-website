@@ -47,7 +47,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-900 relative">
       {/* Cinematic Intro Video Overlay */}
       {!introFinished && (
-        <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
+        <div className="fixed inset-0 z-[100] bg-black flex items-center justify-center">
           <video
             ref={videoRef}
             src="/intro-video.mp4"
