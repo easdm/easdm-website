@@ -25,6 +25,7 @@ const cases = [
   },
 ];
 
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 export default function CaseStudies() {
@@ -53,13 +54,13 @@ export default function CaseStudies() {
                   <h3 className="text-base font-bold text-slate-900 mb-3">{item.title}</h3>
                   <p className="text-sm text-slate-600 mb-6 leading-relaxed">{item.description}</p>
                 </div>
-                <a
+                <Link
                   href={item.href}
-                  className="text-xs font-bold text-[#0066CC] hover:text-[#009BFF] inline-flex items-center gap-1 group transition-colors"
+                  className="text-xs font-semibold text-[#0066CC] hover:text-[#009BFF] inline-flex items-center gap-1 group transition-colors"
                 >
                   Read more
                   <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform">&rarr;</span>
-                </a>
+                </Link>
               </article>
             </ScrollReveal>
           ))}

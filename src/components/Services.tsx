@@ -37,6 +37,7 @@ const services = [
   },
 ];
 
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Services() {
@@ -65,13 +66,13 @@ export default function Services() {
                   <h3 className="text-base font-bold text-slate-900 mb-3">{service.title}</h3>
                   <p className="text-sm text-slate-600 mb-6 leading-relaxed">{service.description}</p>
                 </div>
-                <a
+                <Link
                   href={service.href}
-                  className="text-xs font-bold text-[#0066CC] hover:text-[#009BFF] inline-flex items-center gap-1 group transition-colors"
+                  className="text-xs font-semibold text-[#0066CC] hover:text-[#009BFF] inline-flex items-center gap-1 group transition-colors"
                 >
                   Learn more
                   <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform">&rarr;</span>
-                </a>
+                </Link>
               </article>
             </ScrollReveal>
           ))}

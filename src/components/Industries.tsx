@@ -9,6 +9,7 @@ const industries = [
   { name: "Startups", href: "/industries/startups" },
 ];
 
+import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Industries() {
@@ -34,13 +35,13 @@ export default function Industries() {
                 className="rounded-xl bg-white p-6 border border-slate-100 card-interactive shadow-sm h-full flex flex-col justify-between"
               >
                 <p className="text-base font-bold text-slate-900">{industry.name}</p>
-                <a
+                <Link
                   href={industry.href}
-                  className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-[#0066CC] hover:text-[#009BFF] group"
+                  className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#0066CC] hover:text-[#009BFF] group"
                 >
                   Learn more
                   <span className="transform translate-x-0 group-hover:translate-x-1 transition-transform">&rarr;</span>
-                </a>
+                </Link>
               </div>
             </ScrollReveal>
           ))}
