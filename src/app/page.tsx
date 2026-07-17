@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Hero from "@/components/Hero";
 import FeaturedInsights from "@/components/FeaturedInsights";
 import Services from "@/components/Services";
@@ -12,11 +12,32 @@ import Careers from "@/components/Careers";
 
 export default function Home() {
   const [minimized, setMinimized] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false); // Default to unmuted
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setMinimized(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Attempt to autoplay unmuted
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          console.log("Autoplay with audio blocked by browser, falling back to muted autoplay:", error);
+          setIsMuted(true);
+          // Retry playing muted
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play().catch((err) => {
+              console.log("Muted autoplay retry failed:", err);
+            });
+          }
+        });
+      }
     }
   }, []);
 
@@ -29,18 +50,25 @@ export default function Home() {
         }`}
       >
         <video
+          ref={videoRef}
           src="/intro-video.mp4"
           autoPlay
           muted={isMuted}
           playsInline
           onEnded={() => setMinimized(true)}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain bg-black"
         />
         
         {/* Unmute/Mute Toggle Button Overlay */}
         {!minimized && (
           <button
-            onClick={() => setIsMuted(!isMuted)}
+            onClick={() => {
+              if (videoRef.current) {
+                const nextMuteState = !isMuted;
+                videoRef.current.muted = nextMuteState;
+                setIsMuted(nextMuteState);
+              }
+            }}
             className="absolute bottom-6 right-6 z-30 p-3 rounded-full bg-black/60 hover:bg-black/80 text-white border border-white/20 transition-all duration-300 flex items-center gap-2 cursor-pointer text-xs font-bold"
           >
             {isMuted ? (
