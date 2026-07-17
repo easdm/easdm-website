@@ -30,7 +30,7 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
         {/* Logo / Brand */}
         <a href="/" className="flex items-center gap-3 group">
-          <svg className="w-8 h-8 transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-[38px] h-[38px] transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6 6H26" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
             <path d="M6 16H20" stroke="url(#logo-grad-2)" strokeWidth="4" strokeLinecap="round"/>
             <path d="M6 26H24" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
