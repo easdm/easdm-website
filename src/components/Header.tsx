@@ -48,7 +48,7 @@ export default function Header() {
           </svg>
           <div className="flex flex-col text-left">
             <span className="text-lg font-black tracking-tight text-white leading-none">EAS</span>
-            <span className="text-[9px] font-bold tracking-wider text-slate-350 uppercase mt-1 leading-none">
+            <span className="text-[9px] font-bold tracking-wider text-slate-300 uppercase mt-1 leading-none">
               Enterprise Application Solutions
             </span>
           </div>
