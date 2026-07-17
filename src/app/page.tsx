@@ -23,6 +23,17 @@ export default function Home() {
     }
   }, []);
 
+  useEffect(() => {
+    if (!introFinished) {
+      document.body.classList.add('intro-active');
+    } else {
+      document.body.classList.remove('intro-active');
+    }
+    return () => {
+      document.body.classList.remove('intro-active');
+    };
+  }, [introFinished]);
+
   const handlePlayWithSound = () => {
     setIsMuted(false);
     setShowPlayOverlay(false);

@@ -216,3 +216,9 @@ body {
     transform: none;
   }
 }
+
+/* Hide global header layout while homepage video intro is active */
+.intro-active header {
+  display: none !important;
+}
+
