@@ -12,55 +12,86 @@ import Careers from "@/components/Careers";
 
 export default function Home() {
   const [minimized, setMinimized] = useState(false);
-  const [isMuted, setIsMuted] = useState(false); // Default to unmuted
+  const [isMuted, setIsMuted] = useState(false);
+  const [showPlayOverlay, setShowPlayOverlay] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setMinimized(true);
+      setShowPlayOverlay(false);
     }
   }, []);
 
-  useEffect(() => {
-    // Attempt to autoplay unmuted
+  const handlePlayWithSound = () => {
+    setIsMuted(false);
+    setShowPlayOverlay(false);
     if (videoRef.current) {
-      const playPromise = videoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          console.log("Autoplay with audio blocked by browser, falling back to muted autoplay:", error);
-          setIsMuted(true);
-          // Retry playing muted
-          if (videoRef.current) {
-            videoRef.current.muted = true;
-            videoRef.current.play().catch((err) => {
-              console.log("Muted autoplay retry failed:", err);
-            });
-          }
-        });
-      }
+      videoRef.current.muted = false;
+      videoRef.current.currentTime = 0;
+      videoRef.current.play().catch((err) => {
+        console.log("Play failed after user interaction:", err);
+      });
     }
-  }, []);
+  };
+
+  const handleSkipIntro = () => {
+    setMinimized(true);
+    setShowPlayOverlay(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 relative">
+    <main className="min-h-screen bg-[#050811] text-slate-900 relative">
       {/* Hero Video Container */}
       <div
-        className={`relative overflow-hidden transition-all duration-700 ${
+        className={`relative overflow-hidden transition-all duration-[800ms] ease-in-out ${
           minimized ? "h-20 md:h-24" : "h-[50vh] md:h-screen"
         }`}
       >
         <video
           ref={videoRef}
           src="/intro-video.mp4"
-          autoPlay
           muted={isMuted}
           playsInline
           onEnded={() => setMinimized(true)}
           className="w-full h-full object-contain bg-black"
         />
         
-        {/* Unmute/Mute Toggle Button Overlay */}
-        {!minimized && (
+        {/* Play/Sound Overlay for browser autoplay compliance */}
+        {showPlayOverlay && !minimized && (
+          <div className="absolute inset-0 z-40 bg-black/80 backdrop-blur-sm flex items-center justify-center p-6">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl animate-fade-in backdrop-blur-md">
+              <div className="w-16 h-16 bg-[#0066CC]/20 border border-[#009BFF]/30 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+                <svg className="w-8 h-8 text-[#009BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M18.364 5.636a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+              </div>
+              <h3 className="text-white text-lg font-bold mb-2">Welcome to EAS</h3>
+              <p className="text-slate-350 text-xs mb-6">Experience our introduction with full audio.</p>
+              
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={handlePlayWithSound}
+                  className="w-full rounded-lg bg-[#0066CC] hover:bg-[#009BFF] py-3 text-sm font-bold text-white transition-all duration-300 transform hover:shadow-lg hover:shadow-[#0066CC]/20 cursor-pointer"
+                >
+                  Play with Sound
+                </button>
+                <button
+                  onClick={handleSkipIntro}
+                  className="w-full rounded-lg border border-slate-500 hover:border-slate-300 py-2.5 text-xs font-semibold text-slate-300 hover:text-white transition-colors cursor-pointer"
+                >
+                  Skip Intro
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Unmute/Mute Toggle Button Overlay (Post-click control) */}
+        {!minimized && !showPlayOverlay && (
           <button
             onClick={() => {
               if (videoRef.current) {
@@ -103,7 +134,7 @@ export default function Home() {
 
       {/* Fade In Homepage Content After Minimize */}
       <div
-        className={`transition-opacity duration-700 ${
+        className={`transition-opacity duration-700 bg-white ${
           minimized ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
