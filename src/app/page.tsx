@@ -32,22 +32,51 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  // Lock body scrolling while video is playing
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Lock html and body scrolling while video is playing
   useEffect(() => {
     if (!minimized && !reduceMotion) {
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.height = '100%';
       document.body.style.overflow = 'hidden';
+      document.body.style.height = '100%';
     } else {
-      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+      document.body.style.overflow = '';
+      document.body.style.height = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+      document.body.style.overflow = '';
+      document.body.style.height = '';
     };
   }, [minimized, reduceMotion]);
+
+  // Block touch gestures on the video container to prevent address bar shifts/scrolling in Chrome/Edge
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const preventScroll = (e: TouchEvent) => {
+      if (!minimized) {
+        e.preventDefault();
+      }
+    };
+
+    container.addEventListener('touchmove', preventScroll, { passive: false });
+    return () => {
+      container.removeEventListener('touchmove', preventScroll);
+    };
+  }, [minimized]);
 
   return (
     <main className="min-h-screen bg-white text-slate-900 relative">
       {/* Hero Video Container (Smooth Fade + Shrink + Disappear) */}
       <div
+        ref={containerRef}
         className={`
           relative overflow-hidden z-10 bg-black
           transition-all duration-[1200ms] ease-in-out
@@ -62,7 +91,7 @@ export default function Home() {
             muted={isMuted}
             playsInline
             onEnded={() => setMinimized(true)}
-            className="w-full h-full object-contain md:object-cover"
+            className="w-full h-full object-cover"
           />
         )}
 
