@@ -79,6 +79,10 @@ export default function Header() {
             Case Studies
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
           </Link>
+          <Link href="/support" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+            Support
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+          </Link>
           <Link href="/about" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
             About
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
@@ -92,7 +96,7 @@ export default function Header() {
         {/* Action Button */}
         <div className="flex items-center gap-4">
           <Link 
-            href="/contact" 
+            href="/contact?type=new" 
             className="rounded-md bg-white/10 hover:bg-[#0066CC] border border-white/20 hover:border-[#009BFF] px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#0066CC]/20"
           >
             Get in Touch
