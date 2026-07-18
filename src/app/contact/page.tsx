@@ -1,35 +1,107 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import ScrollReveal from "@/components/ScrollReveal";
 
 export default function ContactPage() {
+  const [customerType, setCustomerType] = useState<'prompt' | 'new' | 'current'>('prompt');
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900 pt-32 pb-20">
       <div className="max-w-5xl mx-auto px-6">
-        <ScrollReveal animation="slide-up">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-800 mb-6">
-            Contact EAS
-          </h1>
-          <p className="text-lg text-slate-600 mb-12 max-w-3xl leading-relaxed">
-            We’re here to support your enterprise application needs. Reach out and our team will respond promptly.
-          </p>
-        </ScrollReveal>
+        
+        {/* Customer Type Prompt */}
+        {customerType === 'prompt' && (
+          <ScrollReveal animation="slide-up">
+            <div className="max-w-xl mx-auto bg-white shadow-xl rounded-2xl p-8 border border-slate-100 text-center space-y-8 py-12">
+              <div className="space-y-3">
+                <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+                  Welcome to EAS
+                </h1>
+                <p className="text-sm text-slate-500 max-w-md mx-auto">
+                  To direct you to the correct department, please let us know if you are a current customer or a new inquiry.
+                </p>
+              </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Sidebar */}
-          <ScrollReveal animation="slide-up" className="delay-100">
-            <ContactSidebar />
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => setCustomerType('new')}
+                  className="flex-1 rounded-xl border-2 border-slate-100 hover:border-[#0066CC] p-6 text-center hover:bg-slate-50/50 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-10 h-10 rounded-full bg-[#0066CC]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5 text-[#0066CC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-base font-bold text-slate-855 mb-1">New Inquiry</h3>
+                  <p className="text-xs text-slate-400">Request consultation, quotes, or bespoke application engineering.</p>
+                </button>
+
+                <button
+                  onClick={() => setCustomerType('current')}
+                  className="flex-1 rounded-xl border-2 border-slate-100 hover:border-[#0066CC] p-6 text-center hover:bg-slate-50/50 transition-all duration-300 group cursor-pointer"
+                >
+                  <div className="w-10 h-10 rounded-full bg-[#0066CC]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5 text-[#0066CC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-base font-bold text-slate-855 mb-1">Current Customer</h3>
+                  <p className="text-xs text-slate-400">Access support, view SLAs, or submit active technical tickets.</p>
+                </button>
+              </div>
+            </div>
           </ScrollReveal>
+        )}
 
-          {/* Form */}
-          <div className="md:col-span-2">
-            <ScrollReveal animation="slide-up" className="delay-200">
-              <MultiStepInquiryForm />
+        {/* New Customer / Get In Touch Form */}
+        {customerType === 'new' && (
+          <div>
+            <ScrollReveal animation="slide-up">
+              <button 
+                onClick={() => setCustomerType('prompt')}
+                className="mb-8 flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+              >
+                &larr; Back to Selection
+              </button>
+              <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-800 mb-6">
+                Get in Touch
+              </h1>
+              <p className="text-lg text-slate-600 mb-12 max-w-3xl leading-relaxed">
+                We’re here to support your enterprise application needs. Reach out and our team will respond promptly.
+              </p>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              <ScrollReveal animation="slide-up" className="delay-100">
+                <ContactSidebar />
+              </ScrollReveal>
+              <div className="md:col-span-2">
+                <ScrollReveal animation="slide-up" className="delay-200">
+                  <MultiStepInquiryForm />
+                </ScrollReveal>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Current Customer / Support Portal Placeholder */}
+        {customerType === 'current' && (
+          <div>
+            <ScrollReveal animation="slide-up">
+              <button 
+                onClick={() => setCustomerType('prompt')}
+                className="mb-8 flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+              >
+                &larr; Back to Selection
+              </button>
+            </ScrollReveal>
+            <ScrollReveal animation="slide-up" className="delay-100">
+              <SupportPortal />
             </ScrollReveal>
           </div>
-        </div>
+        )}
+
       </div>
     </main>
   );
@@ -59,7 +131,7 @@ function ContactSidebar() {
         <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">
           Location
         </h3>
-        <p className="text-slate-700 font-semibold">Lawrenceville, GA</p>
+        <p className="text-slate-700 font-semibold">Argyle, TX</p>
       </div>
     </aside>
   );
@@ -71,6 +143,10 @@ function MultiStepInquiryForm() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  // Split description by whitespace to count words
+  const wordCount = message.trim().split(/\s+/).filter(Boolean).length;
+  const isWordCountValid = wordCount <= 30;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -132,7 +208,7 @@ function MultiStepInquiryForm() {
       {step === 1 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-slate-850 mb-1">
+            <h3 className="text-xl font-bold text-slate-855 mb-1">
               Step 1: About You
             </h3>
             <p className="text-xs text-slate-400">Please provide your contact coordinates.</p>
@@ -184,24 +260,40 @@ function MultiStepInquiryForm() {
       {step === 2 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-slate-850 mb-1">
+            <h3 className="text-xl font-bold text-slate-855 mb-1">
               Step 2: Your Needs
             </h3>
-            <p className="text-xs text-slate-400">Describe your IT or application needs.</p>
+            <p className="text-xs text-slate-400">Describe your request in 30 words or less.</p>
           </div>
 
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-              Project Description
+              Requested Services Description
             </label>
             <textarea
-              rows={5}
+              rows={4}
               required
-              placeholder="Tell us about your project requirements, goals, and timelines..."
+              placeholder="Quick description of service requested..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#0066CC] focus:ring-1 focus:ring-[#0066CC] transition-all"
+              className={`w-full border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-1 transition-all ${
+                isWordCountValid 
+                  ? 'border-slate-200 focus:border-[#0066CC] focus:ring-[#0066CC]' 
+                  : 'border-red-400 focus:border-red-500 focus:ring-red-500'
+              }`}
             />
+            <div className="flex justify-between items-center mt-2">
+              <span className={`text-[10px] font-bold uppercase tracking-wider ${
+                isWordCountValid ? 'text-slate-400' : 'text-red-500 font-extrabold'
+              }`}>
+                {wordCount} / 30 words
+              </span>
+              {!isWordCountValid && (
+                <span className="text-[10px] text-red-500 font-bold">
+                  ⚠️ Description exceeds the 30-word limit.
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="flex justify-between pt-4">
@@ -212,8 +304,8 @@ function MultiStepInquiryForm() {
               &larr; Back
             </button>
             <button
-              onClick={() => message && setStep(3)}
-              disabled={!message}
+              onClick={() => message && isWordCountValid && setStep(3)}
+              disabled={!message || !isWordCountValid}
               className="px-6 py-3 bg-[#0066CC] disabled:bg-slate-200 disabled:cursor-not-allowed hover:bg-[#009BFF] text-white rounded-lg text-sm font-bold transition-all hover:shadow-lg hover:shadow-[#0066CC]/20 cursor-pointer"
             >
               Next Step &rarr;
@@ -226,23 +318,23 @@ function MultiStepInquiryForm() {
       {step === 3 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-slate-850 mb-1">
+            <h3 className="text-xl font-bold text-slate-855 mb-1">
               Step 3: Submit Inquiry
             </h3>
-            <p className="text-xs text-slate-400">Please review your coordinates before sending.</p>
+            <p className="text-xs text-slate-400">Please review your details before submitting.</p>
           </div>
 
           <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 space-y-3 text-sm">
             <div className="grid grid-cols-3">
-              <span className="text-slate-455 font-semibold">Name:</span>
-              <span className="col-span-2 text-slate-800 font-medium">{name}</span>
+              <span className="text-slate-400 font-bold uppercase text-[10px] tracking-wide">Name:</span>
+              <span className="col-span-2 text-slate-800 font-semibold">{name}</span>
             </div>
             <div className="grid grid-cols-3">
-              <span className="text-slate-455 font-semibold">Email:</span>
-              <span className="col-span-2 text-slate-800 font-medium">{email}</span>
+              <span className="text-slate-400 font-bold uppercase text-[10px] tracking-wide">Email:</span>
+              <span className="col-span-2 text-slate-800 font-semibold">{email}</span>
             </div>
             <div className="flex flex-col gap-1">
-              <span className="text-slate-455 font-semibold">Message:</span>
+              <span className="text-slate-400 font-bold uppercase text-[10px] tracking-wide">Description:</span>
               <span className="text-slate-700 bg-white border border-slate-150 rounded p-3 mt-1 whitespace-pre-wrap">{message}</span>
             </div>
           </div>
@@ -263,6 +355,115 @@ function MultiStepInquiryForm() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function SupportPortal() {
+  const [supportArea, setSupportArea] = useState('azure');
+  const [submitted, setSubmitted] = useState(false);
+
+  if (submitted) {
+    return (
+      <div className="max-w-2xl mx-auto bg-[#0A1A2F] text-white border border-white/10 shadow-2xl rounded-2xl p-8 py-16 text-center space-y-6">
+        <div className="w-16 h-16 bg-[#00E5FF]/10 border border-[#00E5FF]/30 rounded-full flex items-center justify-center mx-auto animate-pulse">
+          <svg className="w-8 h-8 text-[#00E5FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+        <h3 className="text-2xl font-bold tracking-tight">Ticket Submitted Successfully</h3>
+        <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
+          Your request has been routed to the priority Queue. Response SLA is governed by your contract terms.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto bg-[#0A1A2F] text-white border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
+      <div className="bg-gradient-to-r from-[#0066CC] to-[#009BFF] px-8 py-6">
+        <h2 className="text-2xl font-bold tracking-tight text-white">EAS Client Support Portal</h2>
+        <p className="text-xs text-slate-100 mt-1">Authorized corporate access and priority incident submission.</p>
+      </div>
+      
+      <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="p-8 space-y-6">
+        {/* Placeholder Login Form Credentials */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+              Corporate Email Address
+            </label>
+            <input
+              type="email"
+              required
+              placeholder="user@enterprise.com"
+              className="w-full bg-white/5 border border-white/10 focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none transition-all"
+            />
+          </div>
+          <div>
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+              SSO Portal Password
+            </label>
+            <input
+              type="password"
+              required
+              placeholder="••••••••"
+              className="w-full bg-white/5 border border-white/10 focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none transition-all"
+            />
+          </div>
+        </div>
+
+        {/* Incident Classification Dropdown */}
+        <div>
+          <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+            Select Support Infrastructure Category
+          </label>
+          <div className="relative">
+            <select
+              value={supportArea}
+              onChange={(e) => setSupportArea(e.target.value)}
+              className="w-full bg-white/5 border border-white/10 focus:border-[#00E5FF] rounded-lg px-4 py-3 text-sm text-white focus:outline-none appearance-none transition-all cursor-pointer font-semibold"
+            >
+              <option value="azure" className="bg-[#0A1A2F] text-white">Azure Cloud Infrastructure Support</option>
+              <option value="entra" className="bg-[#0A1A2F] text-white">Entra ID & Zero-Trust Governance</option>
+              <option value="intune" className="bg-[#0A1A2F] text-white">Intune Endpoint Management & Provisioning</option>
+              <option value="m365" className="bg-[#0A1A2F] text-white">Microsoft 365 Tenant Support</option>
+              <option value="custom" className="bg-[#0A1A2F] text-white">Custom Software & DevOps Maintenance</option>
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Incident description */}
+        <div>
+          <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+            Provide Incident Details
+          </label>
+          <textarea
+            rows={4}
+            required
+            placeholder="Please detail the issue, error codes, and symptoms..."
+            className="w-full bg-white/5 border border-white/10 focus:border-[#00E5FF] focus:ring-1 focus:ring-[#00E5FF] rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-all"
+          />
+        </div>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5">
+          <span className="text-[10px] text-slate-500 font-mono">
+            🔐 Session logged under Active Audit SLA.
+          </span>
+          <button
+            type="submit"
+            className="w-full sm:w-auto rounded-lg bg-[#0066CC] hover:bg-[#009BFF] border border-white/10 px-8 py-3 text-sm font-bold text-white transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-lg shadow-[#0066CC]/20"
+          >
+            Authenticate & Open Ticket
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
