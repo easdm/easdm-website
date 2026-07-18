@@ -6,6 +6,18 @@ import { BespokeAppsEngine } from './BespokeAppsEngine';
 
 const slides = [
   {
+    titleLine1: "Bespoke Applications",
+    titleLine2: "Built for Scale.",
+    description: "High-performance client-facing web interfaces, cross-platform native apps, and automation microservices engineered with speed and security.",
+    primaryBtn: "App Delivery",
+    primaryHref: "#services",
+    secondaryBtn: "Work With Us",
+    secondaryHref: "#contact",
+    bgGradient: "from-[#110E2E] via-[#4F46E5] to-[#0A071B]",
+    techBadges: ["Next.js", "Firebase", "Android", "iOS", "CI/CD Automations"],
+    graphic: (isActive: boolean) => <BespokeAppsEngine isActive={isActive} />
+  },
+  {
     titleLine1: "Engineering the",
     titleLine2: "Modern Enterprise.",
     description: "Cloud, Identity, Endpoint, and Application Solutions for organizations that demand security, scale, and precision.",
@@ -48,18 +60,6 @@ const slides = [
         </div>
       </div>
     )
-  },
-  {
-    titleLine1: "Bespoke Applications",
-    titleLine2: "Built for Scale.",
-    description: "High-performance client-facing web interfaces, cross-platform native apps, and automation microservices engineered with speed and security.",
-    primaryBtn: "App Delivery",
-    primaryHref: "#services",
-    secondaryBtn: "Work With Us",
-    secondaryHref: "#contact",
-    bgGradient: "from-[#110E2E] via-[#4F46E5] to-[#0A071B]",
-    techBadges: ["Next.js", "Firebase", "Android", "iOS", "CI/CD Automations"],
-    graphic: (isActive: boolean) => <BespokeAppsEngine isActive={isActive} />
   }
 ];
 
@@ -86,9 +86,6 @@ export default function Hero() {
       {/* Abstract Tech Grid Background */}
       <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_transparent_40%,_#050811_95%)] pointer-events-none z-10" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-10" />
-
-      {/* Top Banner Accent */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#009BFF] to-transparent opacity-60 z-30" />
 
       {/* Slides Container */}
       <div className="absolute inset-0 w-full h-full">
