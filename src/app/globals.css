@@ -230,3 +230,42 @@ body {
 .animate-fade-in-slow {
   animation: fade-in-slow 1.2s ease-out forwards;
 }
+
+/* Cognitive AI Core Synaptic Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-8px) translateX(4px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float-text {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-text {
+  animation: float-text 5s ease-in-out infinite;
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 8, 12;
+  animation: dash-flow 2.5s linear infinite;
+}
+

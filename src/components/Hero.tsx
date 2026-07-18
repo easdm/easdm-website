@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import CognitiveCore from './CognitiveCore';
 
 const slides = [
   {
@@ -13,18 +14,7 @@ const slides = [
     secondaryHref: "#contact",
     bgGradient: "from-[#0A1A2F] via-[#0066CC] to-[#09111e]",
     techBadges: ["Azure", "Entra ID", "Intune", "Microsoft 365", "Custom Apps"],
-    graphic: (
-      <div className="relative w-full h-64 md:h-96 rounded-2xl bg-gradient-to-br from-[#0066CC] via-[#009BFF] to-[#0A1A2F] overflow-hidden shadow-2xl border border-white/10 animate-gradient-drift">
-        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top,_#ffffff,_transparent_60%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px]" />
-        <div className="absolute bottom-8 left-8 right-8 text-sm text-slate-100 z-10">
-          <p className="font-bold text-lg tracking-tight">Enterprise Cloud & Identity Architecture</p>
-          <p className="text-xs text-slate-300 mt-2 font-mono">
-            Infrastructure as Code · Azure DevOps · Arm Templates · Entra ID Governance
-          </p>
-        </div>
-      </div>
-    )
+    graphic: <CognitiveCore />
   },
   {
     titleLine1: "Secure Identity.",
