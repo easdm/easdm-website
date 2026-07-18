@@ -99,7 +99,7 @@ export default function CognitiveCore() {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <span className="absolute text-[10px] font-bold text-[#009BFF] opacity-70 animate-orbit-slow select-none">AI</span>
           <span className="absolute text-[10px] font-bold text-[#00E5FF] opacity-70 animate-orbit-medium select-none">LLM</span>
-          <span className="absolute text-[10px] font-bold text-[#0066CC] opacity-70 animate-orbit-fast select-none whitespace-nowrap">Predictive Analytics</span>
+          <span className="absolute text-[10px] font-bold text-white opacity-85 animate-orbit-fast select-none whitespace-nowrap">Predictive Analytics</span>
         </div>
 
         {/* AI Core Text overlay just above the core circle */}
