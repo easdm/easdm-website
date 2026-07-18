@@ -102,8 +102,8 @@ export default function CognitiveCore() {
           <span className="absolute text-[10px] font-bold text-[#0066CC] opacity-70 animate-orbit-fast select-none whitespace-nowrap">Predictive Analytics</span>
         </div>
 
-        {/* AI Core Text overlay inside center */}
-        <span className="absolute text-[10px] font-black uppercase tracking-widest text-white drop-shadow-[0_0_6px_#00E5FF] select-none pointer-events-none transition-all duration-300 group-hover:scale-110">
+        {/* AI Core Text overlay just above the core circle */}
+        <span className="absolute -translate-y-[65px] text-[10px] font-black uppercase tracking-widest text-white drop-shadow-[0_0_6px_#00E5FF] select-none pointer-events-none transition-all duration-300 group-hover:scale-110">
           AI Core
         </span>
 
