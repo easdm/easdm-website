@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { AiNeuralCore } from './AiNeuralCore';
+import { BespokeAppsEngine } from './BespokeAppsEngine';
 
 const slides = [
   {
@@ -58,23 +59,7 @@ const slides = [
     secondaryHref: "#contact",
     bgGradient: "from-[#110E2E] via-[#4F46E5] to-[#0A071B]",
     techBadges: ["Next.js", "Firebase", "Android", "iOS", "CI/CD Automations"],
-    graphic: (
-      <div className="relative w-full h-64 md:h-96 rounded-2xl bg-gradient-to-br from-[#4F46E5] via-[#6366F1] to-[#110E2E] overflow-hidden shadow-2xl border border-white/10 animate-gradient-drift">
-        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top,_#ffffff,_transparent_60%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:16px_16px]" />
-        <div className="absolute top-12 left-12 right-12 bottom-12 flex flex-col gap-3 justify-center z-10">
-          <div className="h-6 w-3/4 rounded bg-white/10 border border-white/20 transform -translate-x-4 hover:translate-x-0 transition-transform duration-500" />
-          <div className="h-6 w-1/2 rounded bg-white/15 border border-white/20 transform translate-x-4 hover:translate-x-0 transition-transform duration-500" />
-          <div className="h-6 w-5/6 rounded bg-white/5 border border-white/10 transform -translate-x-2 hover:translate-x-0 transition-transform duration-500" />
-        </div>
-        <div className="absolute bottom-8 left-8 right-8 text-sm text-slate-100 z-10">
-          <p className="font-bold text-lg tracking-tight">Full-Stack SSR & Native Apps</p>
-          <p className="text-xs text-slate-300 mt-2 font-mono">
-            React Server Components · Firebase App Hosting · Swift & Kotlin Parity
-          </p>
-        </div>
-      </div>
-    )
+    graphic: <BespokeAppsEngine />
   }
 ];
 

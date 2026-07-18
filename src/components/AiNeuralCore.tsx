@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export function AiNeuralCore() {
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -11,8 +12,26 @@ export function AiNeuralCore() {
     }
   }, []);
 
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / 40;
+    const y = (e.clientY - rect.top - rect.height / 2) / 40;
+    setParallax({ x, y });
+  }
+
+  function handleMouseLeave() {
+    setParallax({ x: 0, y: 0 });
+  }
+
   return (
-    <div className="relative w-64 h-64 mx-auto group">
+    <div
+      className="relative w-64 h-64 mx-auto group cursor-default transition-transform duration-350 ease-out"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `translate(${parallax.x}px, ${parallax.y}px)`
+      }}
+    >
       {/* Static fallback for reduced motion */}
       {reduceMotion ? (
         <div className="w-full h-full rounded-full bg-gradient-to-br from-[#009BFF] via-[#00E5FF] to-[#0066CC] flex items-center justify-center">
@@ -44,16 +63,32 @@ export function AiNeuralCore() {
             </span>
           </div>
 
+          {/* Beam-lines that pulse toward labels */}
+          <BeamLine radius={120} color="#00E5FF" />
+          <BeamLine radius={140} color="#009BFF" />
+          <BeamLine radius={160} color="#0066CC" />
+
           {/* Orbiting labels */}
-          <OrbitLabel text="AI" radius={80} className="text-[#00E5FF]" />
-          <OrbitLabel text="LLM" radius={100} className="text-[#009BFF]" />
-          <OrbitLabel
-            text="Predictive Analytics"
-            radius={120}
-            className="text-[#0066CC]"
-          />
+          <OrbitLabel text="Agents" radius={140} className="text-[#00E5FF]" />
+          <OrbitLabel text="RAG" radius={160} className="text-[#009BFF]" />
+          <OrbitLabel text="Automation" radius={180} className="text-[#0066CC]" />
         </>
       )}
+    </div>
+  );
+}
+
+function BeamLine({ radius, color }: { radius: number; color: string }) {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div
+        className="beam-line"
+        style={{
+          width: radius,
+          height: 2,
+          background: `linear-gradient(90deg, ${color} 0%, transparent 100%)`,
+        }}
+      />
     </div>
   );
 }
@@ -71,10 +106,9 @@ function OrbitLabel({ text, radius, className }: OrbitLabelProps) {
       style={{ transformOrigin: "center" }}
     >
       <span
-        className={`text-[10px] font-medium ${className} orbit-label`}
+        className={`text-[10px] font-semibold ${className} orbit-label`}
         style={{
           transform: `translateX(${radius}px)`,
-          // Using custom properties to align with the CSS wobble keyframe
           ['--tx' as any]: `${radius}px`
         }}
       >
