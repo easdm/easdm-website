@@ -15,7 +15,7 @@ const slides = [
     secondaryHref: "#contact",
     bgGradient: "from-[#0A1A2F] via-[#0066CC] to-[#09111e]",
     techBadges: ["Azure", "Entra ID", "Intune", "Microsoft 365", "Custom Apps"],
-    graphic: <CognitiveCore />
+    graphic: (isActive: boolean) => <CognitiveCore isActive={isActive} />
   },
   {
     titleLine1: "Secure Identity.",
@@ -59,12 +59,13 @@ const slides = [
     secondaryHref: "#contact",
     bgGradient: "from-[#110E2E] via-[#4F46E5] to-[#0A071B]",
     techBadges: ["Next.js", "Firebase", "Android", "iOS", "CI/CD Automations"],
-    graphic: <BespokeAppsEngine />
+    graphic: (isActive: boolean) => <BespokeAppsEngine isActive={isActive} />
   }
 ];
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -75,9 +76,10 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
+    if (isAutoplayPaused) return;
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
-  }, [nextSlide]);
+  }, [nextSlide, isAutoplayPaused]);
 
   return (
     <section className="relative min-h-[620px] md:min-h-[700px] bg-[#050811] text-white overflow-hidden flex items-center">
@@ -174,12 +176,12 @@ export default function Hero() {
 
                   {/* Slide Graphic/Visual Content */}
                   <div 
-                    className={`flex-1 w-full transition-all duration-[1200ms] ease-out ${
+                    className={`flex-1 w-full flex items-center justify-center transition-all duration-[1200ms] ease-out ${
                       isActive ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 translate-x-8 scale-[0.97]'
                     }`}
                     style={{ transitionDelay: isActive ? '200ms' : '0ms' }}
                   >
-                    {slide.graphic}
+                    {typeof slide.graphic === 'function' ? slide.graphic(isActive) : slide.graphic}
                   </div>
 
                 </div>
@@ -213,6 +215,26 @@ export default function Hero() {
           </button>
         </div>
 
+        {/* Center: Autoplay Pause/Play button */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+          <button
+            onClick={() => setIsAutoplayPaused(!isAutoplayPaused)}
+            className="w-10 h-10 rounded-full border border-white/15 bg-white/10 hover:bg-white/20 hover:border-white/40 flex items-center justify-center transition-all duration-300 cursor-pointer text-white shadow-lg hover:scale-105"
+            aria-label={isAutoplayPaused ? "Play slide rotation" : "Pause slide rotation"}
+            title={isAutoplayPaused ? "Play slide rotation" : "Pause slide rotation"}
+          >
+            {isAutoplayPaused ? (
+              <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+              </svg>
+            )}
+          </button>
+        </div>
+
         {/* Bullets with progress loaders */}
         <div className="flex gap-3 pr-12">
           {slides.map((_, idx) => (
@@ -225,7 +247,7 @@ export default function Hero() {
               aria-label={`Go to slide ${idx + 1}`}
             >
               {idx === currentSlide && (
-                <div className="absolute top-0 bottom-0 left-0 bg-[#009BFF] animate-progress-fill" />
+                <div className="absolute top-0 bottom-0 left-0 bg-[#009BFF] animate-progress-fill animate-none" style={{ animation: isAutoplayPaused ? 'none' : 'progress-fill 6s linear infinite' }} />
               )}
             </button>
           ))}

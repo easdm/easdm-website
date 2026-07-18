@@ -1,9 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function CognitiveCore() {
+export default function CognitiveCore({ isActive }: { isActive?: boolean }) {
   const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (!isActive) {
+      setIsPaused(false);
+    }
+  }, [isActive]);
 
   return (
     <div className={`relative w-full h-64 md:h-96 rounded-2xl bg-gradient-to-br from-[#0A1A2F] via-[#05162E] to-[#020B14] overflow-hidden shadow-2xl border border-white/10 group cursor-default ${isPaused ? 'paused-animation' : ''}`}>

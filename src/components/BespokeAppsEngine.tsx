@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export function BespokeAppsEngine() {
+export function BespokeAppsEngine({ isActive }: { isActive?: boolean }) {
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const [isPaused, setIsPaused] = useState(false);
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -12,7 +13,11 @@ export function BespokeAppsEngine() {
     setParallax({ x, y });
   }
 
-  const [isPaused, setIsPaused] = useState(false);
+  useEffect(() => {
+    if (!isActive) {
+      setIsPaused(false);
+    }
+  }, [isActive]);
 
   function handleMouseLeave() {
     setParallax({ x: 0, y: 0 });
