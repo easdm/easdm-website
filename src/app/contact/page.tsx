@@ -37,7 +37,10 @@ export default function ContactPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  onClick={() => setCustomerType('new')}
+                  onClick={() => {
+                    setCustomerType('new');
+                    router.push('/contact?type=new');
+                  }}
                   className="flex-1 rounded-xl border-2 border-slate-100 hover:border-[#0066CC] p-6 text-center hover:bg-slate-50/50 transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-full bg-[#0066CC]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">

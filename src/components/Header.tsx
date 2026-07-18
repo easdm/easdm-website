@@ -8,27 +8,38 @@ export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isNewInquiry, setIsNewInquiry] = useState(false);
 
   useEffect(() => {
     if (!isHome) {
       setIsScrolled(true);
-      return;
+    } else {
+      const handleScroll = () => {
+        if (window.scrollY > 20) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+      handleScroll();
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
     }
-
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    // Set initial scroll status
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleCheck = () => {
+        const params = new URLSearchParams(window.location.search);
+        setIsNewInquiry(pathname === '/contact' && params.get('type') === 'new');
+      };
+      // Run checks
+      handleCheck();
+      // Listen to navigation events
+      const interval = setInterval(handleCheck, 150);
+      return () => clearInterval(interval);
+    }
+  }, [pathname]);
 
   return (
     <header 
@@ -67,40 +78,54 @@ export default function Header() {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/#services" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
-            Services
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </Link>
-          <Link href="/#industries" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
-            Industries
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </Link>
-          <Link href="/case-studies/coddleme" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
-            Case Studies
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </Link>
-          <Link href="/support" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
-            Support
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </Link>
-          <Link href="/about" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
-            About
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </Link>
-          <Link href="/contact" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
-            Contact
-            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
-          </Link>
+          {!pathname.startsWith('/services') && (
+            <Link href="/#services" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+              Services
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+            </Link>
+          )}
+          {!pathname.startsWith('/industries') && (
+            <Link href="/#industries" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+              Industries
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+            </Link>
+          )}
+          {!pathname.startsWith('/case-studies') && (
+            <Link href="/case-studies/coddleme" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+              Case Studies
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+            </Link>
+          )}
+          {pathname !== '/support' && (
+            <Link href="/support" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+              Support
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+            </Link>
+          )}
+          {pathname !== '/about' && (
+            <Link href="/about" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+              About
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+            </Link>
+          )}
+          {pathname !== '/contact' && (
+            <Link href="/contact" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors relative group">
+              Contact
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#009BFF] transition-all duration-300 group-hover:w-full" />
+            </Link>
+          )}
         </nav>
 
         {/* Action Button */}
         <div className="flex items-center gap-4">
-          <Link 
-            href="/contact?type=new" 
-            className="rounded-md bg-white/10 hover:bg-[#0066CC] border border-white/20 hover:border-[#009BFF] px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#0066CC]/20"
-          >
-            Get in Touch
-          </Link>
+          {!isNewInquiry && (
+            <Link 
+              href="/contact?type=new" 
+              className="rounded-md bg-white/10 hover:bg-[#0066CC] border border-white/20 hover:border-[#009BFF] px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#0066CC]/20"
+            >
+              Get in Touch
+            </Link>
+          )}
         </div>
       </div>
     </header>
