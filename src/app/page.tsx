@@ -41,17 +41,20 @@ export default function Home() {
       document.documentElement.style.height = '100%';
       document.body.style.overflow = 'hidden';
       document.body.style.height = '100%';
+      document.body.classList.add('video-playing');
     } else {
       document.documentElement.style.overflow = '';
       document.documentElement.style.height = '';
       document.body.style.overflow = '';
       document.body.style.height = '';
+      document.body.classList.remove('video-playing');
     }
     return () => {
       document.documentElement.style.overflow = '';
       document.documentElement.style.height = '';
       document.body.style.overflow = '';
       document.body.style.height = '';
+      document.body.classList.remove('video-playing');
     };
   }, [minimized, reduceMotion]);
 

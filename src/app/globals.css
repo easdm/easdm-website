@@ -383,6 +383,12 @@ body {
   animation: pulse-scale 3s ease-in-out infinite;
 }
 
+/* Hide header and footer completely when fullscreen intro video is active */
+body.video-playing header,
+body.video-playing footer {
+  display: none !important;
+}
+
 
 
 
