@@ -84,15 +84,28 @@ export default function Home() {
         `}
       >
         {!reduceMotion && (
-          <video
-            ref={videoRef}
-            src="/intro-video.mp4"
-            autoPlay
-            muted={isMuted}
-            playsInline
-            onEnded={() => setMinimized(true)}
-            className="w-full h-full object-cover"
-          />
+          <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-[#050811] overflow-hidden">
+            {/* Ambient blurred background video for portrait/mobile viewport filling */}
+            <video
+              src="/intro-video.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-25 blur-3xl pointer-events-none block md:hidden scale-110"
+            />
+            
+            {/* Main sharp video (contained on mobile to prevent zoom cropping, covered on desktop) */}
+            <video
+              ref={videoRef}
+              src="/intro-video.mp4"
+              autoPlay
+              muted={isMuted}
+              playsInline
+              onEnded={() => setMinimized(true)}
+              className="w-full h-full object-contain md:object-cover relative z-10"
+            />
+          </div>
         )}
 
         {/* Sound Toggle Button overlay (Placed prominently in the top center) */}
