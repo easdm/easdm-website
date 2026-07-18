@@ -23,17 +23,13 @@ export default function Home() {
     }
   }, []);
 
-  // Force scroll to top on mount and set home-page class
+  // Force scroll to top on mount to override browser scroll restoration
   useEffect(() => {
     window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       window.scrollTo(0, 0);
     }, 100);
-    document.body.classList.add('home-page');
-    return () => {
-      clearTimeout(timer);
-      document.body.classList.remove('home-page');
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -152,7 +148,7 @@ export default function Home() {
 
       {/* Homepage Content Fade‑In */}
       <div
-        className={`home-sections transition-opacity duration-900 ${
+        className={`transition-opacity duration-900 ${
           minimized ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >

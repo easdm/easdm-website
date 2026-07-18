@@ -47,29 +47,29 @@ export default function Header() {
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
         {/* Logo / Brand */}
-        <a href="/" className="flex items-center gap-3 group">
-          <svg className="w-[38px] h-[38px] transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 6H26" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
-            <path d="M6 16H20" stroke="url(#logo-grad-2)" strokeWidth="4" strokeLinecap="round"/>
-            <path d="M6 26H24" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
-            <path d="M6 6V26" stroke="url(#logo-grad-2)" strokeWidth="4" strokeLinecap="round"/>
-            <defs>
-              <linearGradient id="logo-grad-1" x1="6" y1="6" x2="26" y2="6" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#009BFF"/>
-                <stop offset="1" stopColor="#0066CC"/>
-              </linearGradient>
-              <linearGradient id="logo-grad-2" x1="6" y1="16" x2="20" y2="16" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#00E5FF"/>
-                <stop offset="1" stopColor="#009BFF"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div className="flex flex-col text-left justify-center">
-            <span className="text-lg font-black tracking-tight text-white leading-tight">EAS</span>
-            <span className="text-[9px] font-bold tracking-wider text-slate-300 uppercase mt-0.5 leading-normal">
-              Enterprise Application Solutions
-            </span>
+        <a href="/" className="flex flex-col items-start group">
+          <div className="flex items-center gap-1.5">
+            <svg className="w-[30px] h-[30px] transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 6H26" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
+              <path d="M6 16H20" stroke="url(#logo-grad-2)" strokeWidth="4" strokeLinecap="round"/>
+              <path d="M6 26H24" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
+              <path d="M6 6V26" stroke="url(#logo-grad-2)" strokeWidth="4" strokeLinecap="round"/>
+              <defs>
+                <linearGradient id="logo-grad-1" x1="6" y1="6" x2="26" y2="6" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#009BFF"/>
+                  <stop offset="1" stopColor="#0066CC"/>
+                </linearGradient>
+                <linearGradient id="logo-grad-2" x1="6" y1="16" x2="20" y2="16" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#00E5FF"/>
+                  <stop offset="1" stopColor="#009BFF"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span className="text-xl font-black tracking-wider text-white group-hover:text-[#009BFF] transition-colors leading-none translate-y-[1px]">AS</span>
           </div>
+          <span className="text-[7.5px] sm:text-[9px] font-bold tracking-widest text-[#009BFF]/80 uppercase mt-1 leading-none transition-colors group-hover:text-white">
+            Enterprise Application Solutions
+          </span>
         </a>
 
         {/* Navigation Links */}
