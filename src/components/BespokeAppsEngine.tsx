@@ -9,11 +9,11 @@ export function BespokeAppsEngine() {
       {/* Central cube representing application engine */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-24 h-24 bg-gradient-to-br from-[#0066CC] to-[#00E5FF] rounded-2xl shadow-2xl border border-white/20 animate-pulse-scale flex flex-col items-center justify-center select-none text-center p-2">
-          <span className="text-[11px] font-black uppercase tracking-wider text-white leading-tight">
-            EAS
+          <span className="text-[10px] font-black uppercase tracking-widest text-white drop-shadow-[0_0_6px_#00E5FF] leading-tight">
+            Engine
           </span>
-          <span className="text-[9px] font-bold text-slate-100 leading-tight mt-0.5">
-            Application Engine
+          <span className="text-[8px] font-mono text-slate-200 mt-0.5">
+            v3.0
           </span>
         </div>
       </div>
