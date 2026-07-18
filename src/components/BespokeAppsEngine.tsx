@@ -12,12 +12,34 @@ export function BespokeAppsEngine() {
     setParallax({ x, y });
   }
 
+  const [isPaused, setIsPaused] = useState(false);
+
   function handleMouseLeave() {
     setParallax({ x: 0, y: 0 });
   }
 
   return (
-    <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+    <div className={`relative w-full h-[500px] flex items-center justify-center overflow-hidden ${isPaused ? 'paused-animation' : ''}`}>
+      {/* Pause/Play Control Button */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsPaused(!isPaused);
+        }}
+        className="absolute top-4 right-4 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-md text-white hover:scale-105"
+        aria-label={isPaused ? "Play animation" : "Pause animation"}
+        title={isPaused ? "Play animation" : "Pause animation"}
+      >
+        {isPaused ? (
+          <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        ) : (
+          <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+          </svg>
+        )}
+      </button>
       <div
         className="relative w-[480px] h-[480px] scale-[0.65] md:scale-100 transition-transform duration-350 ease-out group cursor-default"
         onMouseMove={handleMouseMove}

@@ -1,10 +1,33 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function CognitiveCore() {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
-    <div className="relative w-full h-64 md:h-96 rounded-2xl bg-gradient-to-br from-[#0A1A2F] via-[#05162E] to-[#020B14] overflow-hidden shadow-2xl border border-white/10 group cursor-default">
+    <div className={`relative w-full h-64 md:h-96 rounded-2xl bg-gradient-to-br from-[#0A1A2F] via-[#05162E] to-[#020B14] overflow-hidden shadow-2xl border border-white/10 group cursor-default ${isPaused ? 'paused-animation' : ''}`}>
+      {/* Pause/Play Control Button */}
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsPaused(!isPaused);
+        }}
+        className="absolute top-4 right-4 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-md text-white hover:scale-105"
+        aria-label={isPaused ? "Play animation" : "Pause animation"}
+        title={isPaused ? "Play animation" : "Pause animation"}
+      >
+        {isPaused ? (
+          <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        ) : (
+          <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+          </svg>
+        )}
+      </button>
+
       {/* Background ambient lighting */}
       <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_#0066CC_0%,_transparent_60%)]" />
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_#00E5FF_0%,_transparent_40%)]" />
