@@ -65,9 +65,9 @@ export default function Header() {
                 </linearGradient>
               </defs>
             </svg>
-            <span className="text-xl font-black tracking-wider text-white group-hover:text-[#009BFF] transition-colors leading-none translate-y-[1px]">AS</span>
+            <span className="text-[26px] font-black tracking-wider bg-gradient-to-r from-[#00E5FF] via-[#009BFF] to-[#0066CC] bg-clip-text text-transparent leading-none">AS</span>
           </div>
-          <span className="text-[7.5px] sm:text-[9px] font-bold tracking-widest text-[#009BFF]/80 uppercase mt-1 leading-none transition-colors group-hover:text-white">
+          <span className="text-[7.5px] sm:text-[9px] font-bold tracking-widest text-white uppercase mt-1.5 leading-none transition-opacity group-hover:opacity-80">
             Enterprise Application Solutions
           </span>
         </a>
