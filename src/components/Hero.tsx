@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import CognitiveCore from './CognitiveCore';
+import { AiNeuralCore } from './AiNeuralCore';
 
 const slides = [
   {
@@ -14,7 +14,7 @@ const slides = [
     secondaryHref: "#contact",
     bgGradient: "from-[#0A1A2F] via-[#0066CC] to-[#09111e]",
     techBadges: ["Azure", "Entra ID", "Intune", "Microsoft 365", "Custom Apps"],
-    graphic: <CognitiveCore />
+    graphic: <AiNeuralCore />
   },
   {
     titleLine1: "Secure Identity.",

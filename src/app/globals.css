@@ -269,44 +269,54 @@ body {
   animation: dash-flow 2.5s linear infinite;
 }
 
-/* Orbiting AI Identity Animations */
-@keyframes orbit-slow {
-  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+/* User AI Neural Core Spin Animations */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-@keyframes orbit-medium {
-  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+@keyframes spin-fast {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-@keyframes orbit-fast {
-  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+@keyframes spin-reverse-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
-.animate-orbit-slow {
-  animation: orbit-slow 20s linear infinite;
+@keyframes spin-reverse-fast {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 
-.animate-orbit-medium {
-  animation: orbit-medium 16s linear infinite;
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
 }
 
-.animate-orbit-fast {
-  animation: orbit-fast 12s linear infinite;
+.animate-spin-fast {
+  animation: spin-fast 12s linear infinite;
 }
 
-.group:hover .animate-orbit-slow {
-  animation-duration: 15s;
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 30s linear infinite;
 }
 
-.group:hover .animate-orbit-medium {
-  animation-duration: 12s;
+.animate-spin-reverse-fast {
+  animation: spin-reverse-fast 15s linear infinite;
 }
 
-.group:hover .animate-orbit-fast {
-  animation-duration: 9s;
+/* Subtle orbit wobble using CSS variables to preserve dynamic radii */
+.orbit-label {
+  animation: orbit-wobble 18s linear infinite;
 }
+
+@keyframes orbit-wobble {
+  0%, 100% { transform: translate(var(--tx, 80px), 0px); }
+  25% { transform: translate(var(--tx, 80px), 6px); }
+  50% { transform: translate(var(--tx, 80px), 0px); }
+  75% { transform: translate(var(--tx, 80px), -6px); }
+}
+
 
 
