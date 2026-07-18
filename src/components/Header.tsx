@@ -43,7 +43,7 @@ export default function Header() {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent py-4 border-b border-transparent transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent py-4 px-4 md:px-8 border-b border-transparent transition-all duration-300"
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
         {/* Logo / Brand */}

@@ -24,14 +24,14 @@ export function BespokeAppsEngine({ isActive }: { isActive?: boolean }) {
   }
 
   return (
-    <div className={`relative w-full h-[280px] md:h-[500px] flex items-center justify-center overflow-hidden ${isPaused ? 'paused-animation' : ''}`}>
+    <div className={`relative w-full max-w-[280px] h-[280px] md:max-w-[480px] md:h-[480px] mx-auto flex items-center justify-center overflow-hidden ${isPaused ? 'paused-animation' : ''}`}>
       {/* Pause/Play Control Button */}
       <button
         onClick={(e) => {
           e.stopPropagation();
           setIsPaused(!isPaused);
         }}
-        className="absolute top-4 right-4 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-md text-white hover:scale-105"
+        className="absolute bottom-4 right-4 md:bottom-auto md:top-4 md:right-4 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-md text-white hover:scale-105"
         aria-label={isPaused ? "Play animation" : "Pause animation"}
         title={isPaused ? "Play animation" : "Pause animation"}
       >
@@ -46,7 +46,7 @@ export function BespokeAppsEngine({ isActive }: { isActive?: boolean }) {
         )}
       </button>
       <div
-        className="relative w-[480px] h-[480px] scale-[0.5] sm:scale-[0.6] md:scale-100 transition-transform duration-350 ease-out group cursor-default"
+        className="relative w-[480px] h-[480px] scale-[0.58] md:scale-100 transition-transform duration-350 ease-out group cursor-default"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{

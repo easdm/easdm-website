@@ -40,7 +40,7 @@ const slides = [
     bgGradient: "from-[#07162C] via-[#0D9488] to-[#050B14]",
     techBadges: ["Zero Trust", "MFA & SSO", "Conditional Access", "Governance", "Lifecycle"],
     graphic: (
-      <div className="relative w-full h-64 md:h-96 rounded-2xl bg-gradient-to-br from-[#0D9488] via-[#14B8A6] to-[#07162C] overflow-hidden shadow-2xl border border-white/10 animate-gradient-drift">
+      <div className="relative w-full max-w-[280px] h-[280px] md:max-w-[480px] md:h-[480px] mx-auto rounded-2xl bg-gradient-to-br from-[#0D9488] via-[#14B8A6] to-[#07162C] overflow-hidden shadow-2xl border border-white/10 animate-gradient-drift">
         <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_top,_#ffffff,_transparent_60%)]" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-48 h-48 rounded-full border border-teal-400/20 flex items-center justify-center animate-ping [animation-duration:4s]" />
@@ -106,8 +106,8 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
                 isActive ? 'opacity-100 z-20 pointer-events-auto scale-100' : 'opacity-0 z-0 pointer-events-none scale-[0.98]'
               }`}
             >
-              <div className="mx-auto max-w-6xl px-6 pt-28 pb-16 lg:py-20 w-full">
-                <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+              <div className="mx-auto max-w-6xl px-6 pt-28 pb-16 md:py-20 w-full">
+                <div className="flex flex-col md:grid md:grid-cols-2 items-center gap-12 md:gap-16">
                   
                   {/* Slide Text Content */}
                   <div className="flex-1 w-full text-left">

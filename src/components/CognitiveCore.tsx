@@ -12,14 +12,14 @@ export default function CognitiveCore({ isActive }: { isActive?: boolean }) {
   }, [isActive]);
 
   return (
-    <div className={`relative w-full h-64 md:h-96 rounded-2xl bg-gradient-to-br from-[#0A1A2F] via-[#05162E] to-[#020B14] overflow-hidden shadow-2xl border border-white/10 group cursor-default ${isPaused ? 'paused-animation' : ''}`}>
+    <div className={`relative w-full max-w-[280px] h-[280px] md:max-w-[480px] md:h-[480px] mx-auto rounded-2xl bg-gradient-to-br from-[#0A1A2F] via-[#05162E] to-[#020B14] overflow-hidden shadow-2xl border border-white/10 group cursor-default ${isPaused ? 'paused-animation' : ''}`}>
       {/* Pause/Play Control Button */}
       <button
         onClick={(e) => {
           e.stopPropagation();
           setIsPaused(!isPaused);
         }}
-        className="absolute top-4 right-4 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-md text-white hover:scale-105"
+        className="absolute bottom-4 right-4 md:bottom-auto md:top-4 md:right-4 z-30 w-8 h-8 rounded-full bg-black/40 hover:bg-black/60 border border-white/15 backdrop-blur-md flex items-center justify-center transition-all duration-300 pointer-events-auto shadow-md text-white hover:scale-105"
         aria-label={isPaused ? "Play animation" : "Pause animation"}
         title={isPaused ? "Play animation" : "Pause animation"}
       >
