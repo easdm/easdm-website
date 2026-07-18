@@ -2,7 +2,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="bg-white text-slate-900 flex-grow">
       <section className="bg-[#0A1A2F] text-white pt-32 pb-16">
         <div className="mx-auto max-w-6xl px-6">
           <ScrollReveal animation="slide-up">

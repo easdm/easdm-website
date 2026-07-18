@@ -269,3 +269,44 @@ body {
   animation: dash-flow 2.5s linear infinite;
 }
 
+/* Orbiting AI Identity Animations */
+@keyframes orbit-slow {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+@keyframes orbit-medium {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+@keyframes orbit-fast {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+.animate-orbit-slow {
+  animation: orbit-slow 20s linear infinite;
+}
+
+.animate-orbit-medium {
+  animation: orbit-medium 16s linear infinite;
+}
+
+.animate-orbit-fast {
+  animation: orbit-fast 12s linear infinite;
+}
+
+.group:hover .animate-orbit-slow {
+  animation-duration: 15s;
+}
+
+.group:hover .animate-orbit-medium {
+  animation-duration: 12s;
+}
+
+.group:hover .animate-orbit-fast {
+  animation-duration: 9s;
+}
+
+

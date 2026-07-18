@@ -19,7 +19,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900 pt-32 pb-20">
+    <main className="bg-slate-50 text-slate-900 pt-24 pb-12 flex-grow">
       <div className="max-w-5xl mx-auto px-6">
         
         {/* Customer Type Prompt */}

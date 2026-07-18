@@ -8,7 +8,7 @@ export default function SupportPage() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <main className="min-h-screen bg-[#050B14] text-white pt-32 pb-20">
+    <main className="bg-[#050B14] text-white pt-24 pb-12 flex-grow">
       <div className="max-w-5xl mx-auto px-6">
         
         {submitted ? (
