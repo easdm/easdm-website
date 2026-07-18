@@ -2,11 +2,19 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    if (!isHome) {
+      setIsScrolled(true);
+      return;
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setIsScrolled(true);
@@ -15,15 +23,18 @@ export default function Header() {
       }
     };
 
+    // Set initial scroll status
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-[#0A1A2F]/90 backdrop-blur-md py-4 shadow-lg border-b border-white/5' 
+        isScrolled || !isHome
+          ? 'bg-[#0A1A2F]/95 backdrop-blur-md py-4 shadow-lg border-b border-white/5' 
           : 'bg-transparent py-6'
       }`}
     >
