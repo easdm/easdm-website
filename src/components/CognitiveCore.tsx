@@ -138,22 +138,23 @@ export default function CognitiveCore({ isActive }: { isActive?: boolean }) {
 
         {/* Floating Labels Overlay */}
         {/* Top-Left */}
-        <div className="absolute top-[12%] left-[3%] md:top-[16%] md:left-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[10px] md:text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text">
+        {/* Top-Left */}
+        <div className="hidden md:block absolute top-[16%] left-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text">
           Agentic Automation
         </div>
 
         {/* Top-Right */}
-        <div className="absolute top-[12%] right-[3%] md:top-[16%] right-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[10px] md:text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text" style={{ animationDelay: '-1s' }}>
+        <div className="hidden md:block absolute top-[16%] right-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text" style={{ animationDelay: '-1s' }}>
           LLM Pipelines
         </div>
 
         {/* Bottom-Right */}
-        <div className="absolute bottom-[16%] right-[3%] md:bottom-[20%] right-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[10px] md:text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text" style={{ animationDelay: '-2s' }}>
+        <div className="hidden md:block absolute bottom-[20%] right-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text" style={{ animationDelay: '-2s' }}>
           Predictive Engines
         </div>
 
         {/* Bottom-Left */}
-        <div className="absolute bottom-[16%] left-[3%] md:bottom-[20%] left-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[10px] md:text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text" style={{ animationDelay: '-3s' }}>
+        <div className="hidden md:block absolute bottom-[20%] left-[6%] bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-xs font-bold text-slate-200 tracking-wide uppercase transition-all duration-300 group-hover:border-[#009BFF]/30 group-hover:text-white shadow-lg animate-float-text" style={{ animationDelay: '-3s' }}>
           Cognitive Services
         </div>
       </div>

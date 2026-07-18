@@ -82,7 +82,7 @@ export default function Hero() {
   }, [nextSlide, isAutoplayPaused]);
 
   return (
-    <section className="relative min-h-[620px] md:min-h-[700px] bg-[#050811] text-white overflow-hidden flex items-center">
+    <section className="relative min-h-[780px] sm:min-h-[700px] lg:min-h-[750px] bg-[#050811] text-white overflow-hidden flex items-center">
       {/* Abstract Tech Grid Background */}
       <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_transparent_40%,_#050811_95%)] pointer-events-none z-10" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-10" />
@@ -101,7 +101,7 @@ export default function Hero() {
                 isActive ? 'opacity-100 z-20 pointer-events-auto scale-100' : 'opacity-0 z-0 pointer-events-none scale-[0.98]'
               }`}
             >
-              <div className="mx-auto max-w-6xl px-6 py-20 w-full">
+              <div className="mx-auto max-w-6xl px-6 pt-28 pb-16 lg:py-20 w-full">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
                   
                   {/* Slide Text Content */}

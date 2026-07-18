@@ -51,7 +51,7 @@ export default function Home() {
         className={`
           relative overflow-hidden z-10 bg-black
           transition-all duration-[1200ms] ease-in-out
-          ${minimized ? "h-0 opacity-0 pointer-events-none" : "h-[50vh] md:h-screen scale-100"}
+          ${minimized ? "h-0 opacity-0 pointer-events-none" : "h-screen scale-100"}
         `}
       >
         {!reduceMotion && (

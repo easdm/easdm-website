@@ -24,7 +24,7 @@ export function BespokeAppsEngine({ isActive }: { isActive?: boolean }) {
   }
 
   return (
-    <div className={`relative w-full h-[500px] flex items-center justify-center overflow-hidden ${isPaused ? 'paused-animation' : ''}`}>
+    <div className={`relative w-full h-[280px] md:h-[500px] flex items-center justify-center overflow-hidden ${isPaused ? 'paused-animation' : ''}`}>
       {/* Pause/Play Control Button */}
       <button
         onClick={(e) => {
@@ -46,7 +46,7 @@ export function BespokeAppsEngine({ isActive }: { isActive?: boolean }) {
         )}
       </button>
       <div
-        className="relative w-[480px] h-[480px] scale-[0.65] md:scale-100 transition-transform duration-350 ease-out group cursor-default"
+        className="relative w-[480px] h-[480px] scale-[0.5] sm:scale-[0.6] md:scale-100 transition-transform duration-350 ease-out group cursor-default"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
