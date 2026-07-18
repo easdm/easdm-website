@@ -149,7 +149,7 @@ export default function Home() {
           minimized ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <Hero />
+        <Hero minimized={minimized} />
         <FeaturedInsights />
         <Services />
         <Industries />

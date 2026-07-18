@@ -63,7 +63,7 @@ const slides = [
   }
 ];
 
-export default function Hero() {
+export default function Hero({ minimized = true }: { minimized?: boolean }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
 
@@ -75,11 +75,19 @@ export default function Hero() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   }, []);
 
+  // Reset slide index to 0 when video plays
   useEffect(() => {
-    if (isAutoplayPaused) return;
+    if (!minimized) {
+      setCurrentSlide(0);
+    }
+  }, [minimized]);
+
+  // Autoplay slides cycle (only runs once video has finished)
+  useEffect(() => {
+    if (isAutoplayPaused || !minimized) return;
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
-  }, [nextSlide, isAutoplayPaused]);
+  }, [nextSlide, isAutoplayPaused, minimized]);
 
   return (
     <section className="relative min-h-[780px] sm:min-h-[700px] lg:min-h-[750px] bg-[#050811] text-white overflow-hidden flex items-center">
