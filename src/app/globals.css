@@ -340,29 +340,33 @@ body {
   animation: scale-ring 4s ease-in-out infinite;
 }
 
+.tab-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.tab {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  font-size: 10px;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from { transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle))); }
+  to { transform: rotate(calc(var(--angle) + 360deg)) translateX(var(--radius)) rotate(calc(-1 * (var(--angle) + 360deg))); }
 }
 
-@keyframes orbit-inner {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes orbit-framework {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-}
-
-@keyframes orbit-runtime {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes orbit-device {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+@keyframes orbit-reverse {
+  from { transform: rotate(var(--angle)) translateX(var(--radius)) rotate(calc(-1 * var(--angle))); }
+  to { transform: rotate(calc(var(--angle) - 360deg)) translateX(var(--radius)) rotate(calc(-1 * (var(--angle) - 360deg))); }
 }
 
 @keyframes pulse-scale {

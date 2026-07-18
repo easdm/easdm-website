@@ -19,7 +19,7 @@ export function BespokeAppsEngine() {
   return (
     <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
       <div
-        className="relative w-[480px] h-[480px] scale-[0.65] md:scale-100 transition-transform duration-300 flex items-center justify-center group cursor-default"
+        className="relative w-[480px] h-[480px] scale-[0.65] md:scale-100 transition-transform duration-350 ease-out group cursor-default"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
@@ -49,98 +49,85 @@ export function BespokeAppsEngine() {
         <ScalingRing radius={250} />
         <ScalingRing radius={320} />
 
-        {/* RING 1 — Platforms */}
-        <Ring radius={90} duration={22}>
-          <Tab label="Android" color="#00C853" />
-          <Tab label="iOS" color="#AA00FF" />
-          <Tab label="SSR" color="#009BFF" />
-          <Tab label="CSR" color="#00E5FF" />
-        </Ring>
+        {/* Orbit Paths */}
+        <OrbitPath radius={90} />
+        <OrbitPath radius={125} />
+        <OrbitPath radius={160} />
+        <OrbitPath radius={195} />
+        <OrbitPath radius={230} />
 
-        {/* RING 2 — Frameworks */}
-        <Ring radius={125} duration={26} reverse={true}>
-          <Tab label="React" color="#61DAFB" />
-          <Tab label="Next.js" color="#0F172A" />
-          <Tab label="Tailwind" color="#38BDF8" />
-        </Ring>
+        {/* RING 1 — Platforms */}
+        <OrbitTab label="Android" radius={90} angle={0} color="#009BFF" duration={22} />
+        <OrbitTab label="iOS" radius={90} angle={90} color="#00E5FF" duration={22} />
+        <OrbitTab label="SSR" radius={90} angle={180} color="#0066CC" duration={22} />
+        <OrbitTab label="CSR" radius={90} angle={270} color="#009BFF" duration={22} />
+
+        {/* RING 2 — Devices */}
+        <OrbitTab label="iPhone" radius={125} angle={0} color="#A020F0" duration={26} reverse={true} />
+        <OrbitTab label="iPad" radius={125} angle={60} color="#FF6AD5" duration={26} reverse={true} />
+        <OrbitTab label="Samsung" radius={125} angle={120} color="#00FFC8" duration={26} reverse={true} />
+        <OrbitTab label="Pixel" radius={125} angle={180} color="#FFD700" duration={26} reverse={true} />
+        <OrbitTab label="Windows PC" radius={125} angle={240} color="#A020F0" duration={26} reverse={true} />
+        <OrbitTab label="MacBook" radius={125} angle={300} color="#FF6AD5" duration={26} reverse={true} />
 
         {/* RING 3 — AI */}
-        <Ring radius={160} duration={30}>
-          <Tab label="Agents" color="#00E5FF" />
-          <Tab label="RAG" color="#009BFF" />
-          <Tab label="Automation" color="#0066CC" />
-        </Ring>
+        <OrbitTab label="Agents" radius={160} angle={0} color="#FFD700" duration={30} />
+        <OrbitTab label="RAG" radius={160} angle={120} color="#00FFC8" duration={30} />
+        <OrbitTab label="Automation" radius={160} angle={240} color="#FFD700" duration={30} />
 
-        {/* RING 4 — Cloud */}
-        <Ring radius={195} duration={34} reverse={true}>
-          <Tab label="Firebase" color="#FFCA28" />
-          <Tab label="Google Cloud" color="#4285F4" />
-          <Tab label="GitHub" color="#1E293B" />
-        </Ring>
+        {/* RING 4 — Frameworks */}
+        <OrbitTab label="React" radius={195} angle={0} color="#00E5FF" duration={34} reverse={true} />
+        <OrbitTab label="Next.js" radius={195} angle={120} color="#009BFF" duration={34} reverse={true} />
+        <OrbitTab label="Tailwind" radius={195} angle={240} color="#0066CC" duration={34} reverse={true} />
 
-        {/* RING 5 — Devices */}
-        <Ring radius={230} duration={38}>
-          <Tab label="iPhone" color="#334155" />
-          <Tab label="iPad" color="#475569" />
-          <Tab label="Samsung" color="#00BCD4" />
-          <Tab label="Pixel" color="#8BC34A" />
-          <Tab label="Windows PC" color="#0078D6" />
-          <Tab label="MacBook" color="#64748B" />
-        </Ring>
+        {/* RING 5 — Cloud */}
+        <OrbitTab label="Firebase" radius={230} angle={0} color="#FFFFFF" duration={38} />
+        <OrbitTab label="Google Cloud" radius={230} angle={120} color="#C0C0C0" duration={38} />
+        <OrbitTab label="GitHub" radius={230} angle={240} color="#FFFFFF" duration={38} />
 
       </div>
     </div>
   );
 }
 
-interface RingProps {
+interface OrbitTabProps {
+  label: string;
   radius: number;
+  angle: number;
+  color: string;
   duration: number;
   reverse?: boolean;
-  children: React.ReactNode;
 }
 
-function Ring({ radius, duration, reverse = false, children }: RingProps) {
+function OrbitTab({ label, radius, angle, color, duration, reverse = false }: OrbitTabProps) {
   return (
     <div
-      className="absolute flex items-center justify-center pointer-events-none"
+      className="absolute tab-orbit"
       style={{
-        width: radius * 2,
-        height: radius * 2,
-        animation: `orbit ${duration}s linear infinite${reverse ? " reverse" : ""}`,
-      }}
+        "--radius": `${radius}px`,
+        "--angle": `${angle}deg`,
+        color,
+        animationName: reverse ? "orbit-reverse" : "orbit",
+        animationDuration: `${duration}s`,
+      } as React.CSSProperties}
     >
-      {/* Dashed ring path line */}
-      <div className="absolute inset-0 rounded-full border border-dashed border-[#009BFF]/15" />
-
-      {/* Position children around the circle */}
-      {React.Children.map(children, (child, index) => {
-        const count = React.Children.count(children);
-        const angle = (360 / count) * index;
-        return (
-          <div
-            className="absolute pointer-events-auto"
-            style={{
-              transform: `rotate(${angle}deg) translateX(${radius}px) rotate(-${angle}deg)`,
-            }}
-          >
-            {child}
-          </div>
-        );
-      })}
+      <div className="tab border border-white/10 select-none hover:scale-105 transition-transform duration-200">
+        {label}
+      </div>
     </div>
   );
 }
 
-function Tab({ label, color }: { label: string; color: string }) {
+function OrbitPath({ radius }: { radius: number }) {
   return (
-    <div
-      className="px-2.5 py-1 rounded-lg text-[9px] md:text-xs font-bold text-white shadow-xl border border-white/10 select-none whitespace-nowrap hover:scale-110 transition-transform duration-200"
-      style={{
-        backgroundColor: color,
-      }}
-    >
-      {label}
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div
+        className="rounded-full border border-dashed border-[#009BFF]/10"
+        style={{
+          width: radius * 2,
+          height: radius * 2,
+        }}
+      />
     </div>
   );
 }
