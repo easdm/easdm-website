@@ -48,8 +48,8 @@ export default function Header() {
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between">
         {/* Logo / Brand */}
         <a href="/" className="flex flex-col items-start group">
-          <div className="flex items-center gap-1.5">
-            <svg className="w-[30px] h-[30px] transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div className="flex items-center gap-1">
+            <svg className="w-[38px] h-[38px] transform group-hover:scale-105 transition-transform duration-300" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 6H26" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
               <path d="M6 16H20" stroke="url(#logo-grad-2)" strokeWidth="4" strokeLinecap="round"/>
               <path d="M6 26H24" stroke="url(#logo-grad-1)" strokeWidth="4" strokeLinecap="round"/>
@@ -65,7 +65,7 @@ export default function Header() {
                 </linearGradient>
               </defs>
             </svg>
-            <span className="text-[26px] font-black tracking-wider bg-gradient-to-r from-[#00E5FF] via-[#009BFF] to-[#0066CC] bg-clip-text text-transparent leading-none">AS</span>
+            <span className="text-2xl font-black bg-gradient-to-r from-[#00E5FF] via-[#009BFF] to-[#0066CC] bg-clip-text text-transparent leading-none translate-y-[1px]">AS</span>
           </div>
           <span className="text-[7.5px] sm:text-[9px] font-bold tracking-widest text-white uppercase mt-1.5 leading-none transition-opacity group-hover:opacity-80">
             Enterprise Application Solutions
