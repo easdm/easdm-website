@@ -389,6 +389,20 @@ body.video-playing footer {
   display: none !important;
 }
 
+/* Mobile-first single-page viewport locks and auto-hiding of extra homepage sections */
+@media (max-width: 767px) {
+  body.home-page {
+    overflow-y: hidden !important;
+    height: 100% !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+  
+  body.home-page .home-sections > *:not(:first-child) {
+    display: none !important;
+  }
+}
+
 
 
 

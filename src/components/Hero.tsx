@@ -90,7 +90,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
   }, [nextSlide, isAutoplayPaused, minimized]);
 
   return (
-    <section className="relative min-h-[780px] sm:min-h-[700px] lg:min-h-[750px] bg-[#050811] text-white overflow-hidden flex items-center">
+    <section className="relative h-screen md:min-h-[700px] lg:min-h-[750px] bg-[#050811] text-white overflow-hidden flex items-center pt-12 md:pt-0 pb-12 md:pb-0">
       {/* Abstract Tech Grid Background */}
       <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_transparent_40%,_#050811_95%)] pointer-events-none z-10" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-10" />
@@ -106,13 +106,13 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
                 isActive ? 'opacity-100 z-20 pointer-events-auto scale-100' : 'opacity-0 z-0 pointer-events-none scale-[0.98]'
               }`}
             >
-              <div className="mx-auto max-w-6xl px-6 pt-28 pb-16 md:py-20 w-full">
-                <div className="flex flex-col md:grid md:grid-cols-2 items-center gap-12 md:gap-16">
+              <div className="mx-auto max-w-6xl px-6 pt-16 pb-16 md:py-20 w-full h-full flex flex-col justify-center">
+                <div className="flex-grow flex flex-col md:grid md:grid-cols-2 justify-between md:justify-center items-center gap-4 md:gap-16 h-full w-full">
                   
                   {/* Slide Text Content */}
-                  <div className="flex-1 w-full text-left">
+                  <div className="flex-1 w-full text-left flex flex-col justify-center pt-4 md:pt-0">
                     {/* Staggered Badges */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                       {slide.techBadges.map((badge, idx) => (
                         <span 
                           key={badge} 
@@ -127,7 +127,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
                     </div>
 
                     {/* Masked Title Slide-Up */}
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-3 md:mb-6">
                       <span className="clip-mask">
                         <span className={`inline-block bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-transparent transition-all duration-[1000ms] ease-out ${
                           isActive ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
@@ -149,7 +149,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
 
                     {/* Subtitle Fade In */}
                     <p 
-                      className={`text-base md:text-lg text-slate-300 mb-8 max-w-xl leading-relaxed transition-all duration-[1000ms] ease-out ${
+                      className={`text-xs sm:text-sm md:text-base lg:text-lg text-slate-300 mb-4 md:mb-8 max-w-xl leading-relaxed transition-all duration-[1000ms] ease-out ${
                         isActive ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                       }`}
                       style={{ transitionDelay: isActive ? '300ms' : '0ms' }}
@@ -197,7 +197,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
       </div>
 
       {/* Carousel Controls */}
-      <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between z-30 mx-auto max-w-6xl px-6 w-full">
+      <div className="absolute bottom-12 md:bottom-6 left-6 right-6 flex items-center justify-between z-30 mx-auto max-w-6xl px-6 w-full">
         {/* Navigation Arrows */}
         <div className="flex gap-2">
           <button 
