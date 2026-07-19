@@ -19,24 +19,26 @@ const insights = [
 
 export default function FeaturedInsights() {
   return (
-    <section className="bg-[#F3F4F6]">
+    <section className="bg-transparent text-white">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <h2 className="text-xl md:text-2xl font-semibold mb-6">Featured Insights</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold mb-6 tracking-tight text-white">Featured Insights</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {insights.map((item) => (
             <article
               key={item.title}
-              className="rounded-lg bg-white p-4 shadow-sm hover:shadow-md transition"
+              className="rounded-xl bg-[#0A1A2F]/40 backdrop-blur-md p-6 border border-white/5 hover:border-[#009BFF]/30 transition-all duration-300 shadow-xl hover:shadow-[#009BFF]/5 flex flex-col justify-between"
             >
-              <p className="text-xs font-semibold text-[#0066CC] uppercase mb-2">
-                {item.label}
-              </p>
-              <h3 className="text-sm font-medium mb-3">{item.title}</h3>
+              <div>
+                <p className="text-xs font-semibold text-[#009BFF] uppercase mb-3 tracking-wider">
+                  {item.label}
+                </p>
+                <h3 className="text-sm font-semibold text-slate-200 mb-6 leading-snug">{item.title}</h3>
+              </div>
               <a
                 href="#"
-                className="text-xs font-semibold text-[#0066CC] hover:text-[#009BFF]"
+                className="text-xs font-semibold text-[#009BFF] hover:text-white transition-colors"
               >
-                Read more
+                Read more &rarr;
               </a>
             </article>
           ))}

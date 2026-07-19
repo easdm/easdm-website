@@ -64,56 +64,30 @@ const slides = [
 ];
 
 export default function Hero({ minimized = true }: { minimized?: boolean }) {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
 
-  const scrollToSlide = useCallback((index: number) => {
-    if (!containerRef.current) return;
-    const height = containerRef.current.clientHeight;
-    containerRef.current.scrollTo({
-      top: index * height,
-      behavior: 'smooth'
-    });
-    setActiveSlide(index);
+  const nextSlide = useCallback(() => {
+    setActiveSlide((prev) => (prev + 1) % slides.length);
   }, []);
 
-  const nextSlide = useCallback(() => {
-    scrollToSlide((activeSlide + 1) % slides.length);
-  }, [activeSlide, scrollToSlide]);
-
   const prevSlide = useCallback(() => {
-    scrollToSlide((activeSlide - 1 + slides.length) % slides.length);
-  }, [activeSlide, scrollToSlide]);
+    setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  }, []);
 
-  // Reset scroll to slide 0 when video plays
+  // Reset slide index to 0 when video plays
   useEffect(() => {
-    if (!minimized && containerRef.current) {
-      containerRef.current.scrollTop = 0;
+    if (!minimized) {
       setActiveSlide(0);
     }
   }, [minimized]);
 
-  // Detect which slide is currently centered in the viewport
-  const handleScroll = () => {
-    if (!containerRef.current) return;
-    const scrollTop = containerRef.current.scrollTop;
-    const height = containerRef.current.clientHeight;
-    if (height === 0) return;
-    const index = Math.round(scrollTop / height);
-    if (index >= 0 && index < slides.length && index !== activeSlide) {
-      setActiveSlide(index);
-    }
-  };
-
-  // Autoplay slide transitions via viewport scrolling (runs only when video is minimized)
+  // Autoplay slides cycle (only runs once video has finished)
   useEffect(() => {
     if (isAutoplayPaused || !minimized) return;
-    const timer = setInterval(() => {
-      scrollToSlide((activeSlide + 1) % slides.length);
-    }, 6000);
+    const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
-  }, [activeSlide, isAutoplayPaused, minimized, scrollToSlide]);
+  }, [nextSlide, isAutoplayPaused, minimized]);
 
   return (
     <section className="relative h-screen md:min-h-[700px] lg:min-h-[750px] bg-[#050811] text-white overflow-hidden flex items-center pt-12 md:pt-0 pb-12 md:pb-0">
@@ -121,18 +95,16 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
       <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_transparent_40%,_#050811_95%)] pointer-events-none z-10" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-10" />
 
-      {/* Slides Container - Vertical Scroll Snap */}
-      <div 
-        ref={containerRef}
-        onScroll={handleScroll}
-        className="absolute inset-0 w-full h-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar"
-      >
+      {/* Slides Container - Horizontal Fade */}
+      <div className="absolute inset-0 w-full h-full">
         {slides.map((slide, index) => {
           const isActive = index === activeSlide;
           return (
             <div
               key={index}
-              className="w-full h-full snap-start flex items-center bg-gradient-to-br relative overflow-hidden flex-shrink-0"
+              className={`absolute inset-0 w-full h-full flex items-center bg-gradient-to-br ${slide.bgGradient} transition-all duration-[1200ms] ease-in-out ${
+                isActive ? 'opacity-100 z-20 pointer-events-auto scale-100' : 'opacity-0 z-0 pointer-events-none scale-[0.98]'
+              }`}
             >
               <div className="mx-auto max-w-6xl px-6 pt-16 pb-16 md:py-20 w-full h-full flex flex-col justify-center">
                 <div className="flex-grow flex flex-col md:grid md:grid-cols-2 justify-between md:justify-center items-center gap-4 md:gap-16 h-full w-full">
@@ -274,7 +246,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
             <button
               key={idx}
               onClick={() => {
-                scrollToSlide(idx);
+                setActiveSlide(idx);
               }}
               className={`relative h-1.5 rounded-full overflow-hidden transition-all duration-500 bg-white/20 cursor-pointer ${idx === activeSlide ? 'w-10' : 'w-4 hover:bg-white/40'}`}
               aria-label={`Go to slide ${idx + 1}`}

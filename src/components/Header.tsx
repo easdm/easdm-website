@@ -59,33 +59,33 @@ export default function Header() {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6">
-          <Link href="/insights" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/insights' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
+          <Link href="/#insights" className="text-xs font-bold tracking-wider uppercase transition-colors relative group text-slate-300 hover:text-white">
             Insights
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/insights' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className="absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 w-0 group-hover:w-full" />
           </Link>
-          <Link href="/services" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/services' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
+          <Link href="/#services" className="text-xs font-bold tracking-wider uppercase transition-colors relative group text-slate-300 hover:text-white">
             Services
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/services' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className="absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 w-0 group-hover:w-full" />
           </Link>
-          <Link href="/industries" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/industries' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
+          <Link href="/#industries" className="text-xs font-bold tracking-wider uppercase transition-colors relative group text-slate-300 hover:text-white">
             Industries
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/industries' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className="absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 w-0 group-hover:w-full" />
           </Link>
-          <Link href="/clients" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/clients' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
+          <Link href="/#clients" className="text-xs font-bold tracking-wider uppercase transition-colors relative group text-slate-300 hover:text-white">
             Clients
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/clients' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className="absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 w-0 group-hover:w-full" />
           </Link>
-          <Link href="/mission" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/mission' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
+          <Link href="/#mission" className="text-xs font-bold tracking-wider uppercase transition-colors relative group text-slate-300 hover:text-white">
             Mission
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/mission' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className="absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 w-0 group-hover:w-full" />
           </Link>
-          <Link href="/commitment" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/commitment' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
+          <Link href="/#commitment" className="text-xs font-bold tracking-wider uppercase transition-colors relative group text-slate-300 hover:text-white">
             Commitment
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/commitment' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className="absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 w-0 group-hover:w-full" />
           </Link>
-          <Link href="/careers" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/careers' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
+          <Link href="/#careers" className="text-xs font-bold tracking-wider uppercase transition-colors relative group text-slate-300 hover:text-white">
             Careers
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/careers' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+            <span className="absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 w-0 group-hover:w-full" />
           </Link>
           <Link href="/contact" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/contact' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
             Contact
@@ -126,13 +126,13 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[#050811]/98 backdrop-blur-xl flex flex-col justify-center items-center gap-8 py-20 px-6 overflow-y-auto">
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${isHome ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Home</Link>
-          <Link href="/insights" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/insights' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Insights</Link>
-          <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/services' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Services</Link>
-          <Link href="/industries" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/industries' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Industries</Link>
-          <Link href="/clients" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/clients' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Clients</Link>
-          <Link href="/mission" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/mission' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Mission</Link>
-          <Link href="/commitment" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/commitment' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Commitment</Link>
-          <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/careers' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Careers</Link>
+          <Link href="/#insights" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Insights</Link>
+          <Link href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Services</Link>
+          <Link href="/#industries" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Industries</Link>
+          <Link href="/#clients" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Clients</Link>
+          <Link href="/#mission" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Mission</Link>
+          <Link href="/#commitment" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Commitment</Link>
+          <Link href="/#careers" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Careers</Link>
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/contact' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Contact</Link>
         </div>
       )}

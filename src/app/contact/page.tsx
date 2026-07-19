@@ -19,18 +19,18 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main className="bg-slate-50 text-slate-900 pt-24 pb-12 flex-grow">
+    <main className="bg-[#050811] text-white pt-24 pb-12 flex-grow min-h-screen">
       <div className="max-w-5xl mx-auto px-6">
         
         {/* Customer Type Prompt */}
         {customerType === 'prompt' && (
           <ScrollReveal animation="slide-up">
-            <div className="max-w-xl mx-auto bg-white shadow-xl rounded-2xl p-8 border border-slate-100 text-center space-y-8 py-12">
+            <div className="max-w-xl mx-auto bg-[#0A1A2F]/40 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-8 text-center space-y-8 py-12">
               <div className="space-y-3">
-                <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+                <h1 className="text-3xl font-extrabold text-white tracking-tight">
                   Welcome to EAS
                 </h1>
-                <p className="text-sm text-slate-500 max-w-md mx-auto">
+                <p className="text-sm text-slate-300 max-w-md mx-auto">
                   To direct you to the correct department, please let us know if you are a current customer or a new inquiry.
                 </p>
               </div>
@@ -41,27 +41,27 @@ export default function ContactPage() {
                     setCustomerType('new');
                     router.push('/contact?type=new');
                   }}
-                  className="flex-1 rounded-xl border-2 border-slate-100 hover:border-[#0066CC] p-6 text-center hover:bg-slate-50/50 transition-all duration-300 group cursor-pointer"
+                  className="flex-1 rounded-xl border border-white/5 hover:border-[#009BFF]/30 p-6 text-center bg-[#0A1A2F]/20 hover:bg-[#0A1A2F]/40 transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#0066CC]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 text-[#0066CC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 rounded-full bg-[#009BFF]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5 text-[#009BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
                     </svg>
                   </div>
-                  <h3 className="text-base font-bold text-slate-855 mb-1">New Inquiry</h3>
+                  <h3 className="text-base font-bold text-white mb-1">New Inquiry</h3>
                   <p className="text-xs text-slate-400">Request consultation, quotes, or bespoke application engineering.</p>
                 </button>
 
                 <button
                   onClick={() => router.push('/support')}
-                  className="flex-1 rounded-xl border-2 border-slate-100 hover:border-[#0066CC] p-6 text-center hover:bg-slate-50/50 transition-all duration-300 group cursor-pointer"
+                  className="flex-1 rounded-xl border border-white/5 hover:border-[#009BFF]/30 p-6 text-center bg-[#0A1A2F]/20 hover:bg-[#0A1A2F]/40 transition-all duration-300 group cursor-pointer"
                 >
-                  <div className="w-10 h-10 rounded-full bg-[#0066CC]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 text-[#0066CC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-10 h-10 rounded-full bg-[#009BFF]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5 text-[#009BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
                   </div>
-                  <h3 className="text-base font-bold text-slate-855 mb-1">Current Customer</h3>
+                  <h3 className="text-base font-bold text-white mb-1">Current Customer</h3>
                   <p className="text-xs text-slate-400">Access support, view SLAs, or submit active technical tickets.</p>
                 </button>
               </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
             <ScrollReveal animation="slide-up">
               <button 
                 onClick={() => setCustomerType('prompt')}
-                className="mb-8 flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+                className="mb-8 flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors cursor-pointer"
               >
                 &larr; Back to Selection
               </button>
@@ -107,29 +107,29 @@ export default function ContactPage() {
 
 function ContactSidebar() {
   return (
-    <aside className="bg-white shadow-md rounded-xl p-8 border border-slate-100 space-y-8">
+    <aside className="bg-[#0A1A2F]/40 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-8 space-y-8">
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">
+        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
           Business Hours
         </h3>
-        <p className="text-slate-700 font-semibold">Monday – Friday</p>
-        <p className="text-slate-500 text-sm mt-1">9:00 AM – 5:00 PM EST</p>
+        <p className="text-slate-200 font-semibold">Monday – Friday</p>
+        <p className="text-slate-400 text-sm mt-1">9:00 AM – 5:00 PM EST</p>
       </div>
 
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">
+        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
           Email
         </h3>
-        <a href="mailto:support@easdm.com" className="text-[#0066CC] hover:text-[#009BFF] font-semibold transition-colors">
+        <a href="mailto:support@easdm.com" className="text-[#009BFF] hover:text-white font-semibold transition-colors">
           support@easdm.com
         </a>
       </div>
 
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-3">
+        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
           Location
         </h3>
-        <p className="text-slate-700 font-semibold">Argyle, TX</p>
+        <p className="text-slate-200 font-semibold">Argyle, TX</p>
       </div>
     </aside>
   );
@@ -153,14 +153,14 @@ function MultiStepInquiryForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white shadow-md rounded-xl p-8 border border-slate-100 text-center py-16 space-y-4">
-        <div className="w-16 h-16 bg-[#0066CC]/10 border border-[#009BFF]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg className="w-8 h-8 text-[#0066CC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-[#0A1A2F]/40 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-8 text-center py-16 space-y-4">
+        <div className="w-16 h-16 bg-[#009BFF]/10 border border-[#009BFF]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg className="w-8 h-8 text-[#009BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-slate-800">Thank You!</h3>
-        <p className="text-slate-600 max-w-md mx-auto text-sm">
+        <h3 className="text-2xl font-bold text-white">Thank You!</h3>
+        <p className="text-slate-300 max-w-md mx-auto text-sm">
           Your inquiry has been successfully received. A consultant from the EAS team will reach out to you shortly.
         </p>
       </div>
@@ -168,19 +168,19 @@ function MultiStepInquiryForm() {
   }
 
   return (
-    <div className="bg-white shadow-md rounded-xl p-8 border border-slate-100">
+    <div className="bg-[#0A1A2F]/40 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-8">
       {/* Step Indicators */}
       <div className="flex items-center justify-between mb-10 relative">
-        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-slate-100 -z-10" />
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-white/5 -z-10" />
         {[1, 2, 3].map((s) => (
-          <div key={s} className="flex items-center gap-2 bg-white px-2">
+          <div key={s} className="flex items-center gap-2 bg-[#0A1A2F] px-2 rounded-full border border-white/5">
             <div
               className={`h-7 w-7 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
                 step === s
-                  ? "bg-[#0066CC] text-white shadow-md shadow-[#0066CC]/20"
+                  ? "bg-[#009BFF] text-white shadow-md shadow-[#009BFF]/20"
                   : step > s
                   ? "bg-emerald-500 text-white"
-                  : "bg-slate-100 text-slate-400"
+                  : "bg-white/5 text-slate-500"
               }`}
             >
               {step > s ? (
@@ -192,7 +192,7 @@ function MultiStepInquiryForm() {
               )}
             </div>
             <span
-              className={`text-xs font-bold tracking-wide uppercase hidden sm:inline ${
+              className={`text-xs font-bold tracking-wide uppercase hidden sm:inline pr-2 ${
                 step === s ? "text-slate-855" : "text-slate-400"
               }`}
             >
@@ -206,7 +206,7 @@ function MultiStepInquiryForm() {
       {step === 1 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-slate-855 mb-1">
+            <h3 className="text-xl font-bold text-white mb-1">
               Step 1: About You
             </h3>
             <p className="text-xs text-slate-400">Please provide your contact coordinates.</p>
@@ -214,7 +214,7 @@ function MultiStepInquiryForm() {
 
           <div className="space-y-4">
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                 Full Name
               </label>
               <input
@@ -223,12 +223,12 @@ function MultiStepInquiryForm() {
                 placeholder="John Doe"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#0066CC] focus:ring-1 focus:ring-[#0066CC] transition-all"
+                className="w-full bg-[#0A1A2F]/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#009BFF] focus:ring-1 focus:ring-[#009BFF] transition-all"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                 Email Address
               </label>
               <input
@@ -237,7 +237,7 @@ function MultiStepInquiryForm() {
                 placeholder="john.doe@company.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border border-slate-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#0066CC] focus:ring-1 focus:ring-[#0066CC] transition-all"
+                className="w-full bg-[#0A1A2F]/60 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#009BFF] focus:ring-1 focus:ring-[#009BFF] transition-all"
               />
             </div>
           </div>
@@ -246,7 +246,7 @@ function MultiStepInquiryForm() {
             <button
               onClick={() => name && email && setStep(2)}
               disabled={!name || !email}
-              className="px-6 py-3 bg-[#0066CC] disabled:bg-slate-200 disabled:cursor-not-allowed hover:bg-[#009BFF] text-white rounded-lg text-sm font-bold transition-all hover:shadow-lg hover:shadow-[#0066CC]/20 cursor-pointer"
+              className="px-6 py-3 bg-[#0066CC] disabled:bg-white/5 disabled:text-slate-500 disabled:cursor-not-allowed hover:bg-[#009BFF] text-white rounded-lg text-sm font-bold transition-all hover:shadow-lg hover:shadow-[#009BFF]/20 cursor-pointer"
             >
               Next Step &rarr;
             </button>
@@ -258,14 +258,14 @@ function MultiStepInquiryForm() {
       {step === 2 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-slate-855 mb-1">
+            <h3 className="text-xl font-bold text-white mb-1">
               Step 2: Your Needs
             </h3>
             <p className="text-xs text-slate-400">Describe your request in 30 words or less.</p>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
               Requested Services Description
             </label>
             <textarea
@@ -274,10 +274,10 @@ function MultiStepInquiryForm() {
               placeholder="Quick description of service requested..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className={`w-full border rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-1 transition-all ${
+              className={`w-full bg-[#0A1A2F]/60 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 transition-all ${
                 isWordCountValid 
-                  ? 'border-slate-200 focus:border-[#0066CC] focus:ring-[#0066CC]' 
-                  : 'border-red-400 focus:border-red-500 focus:ring-red-500'
+                  ? 'border border-white/10 focus:border-[#009BFF] focus:ring-[#009BFF]' 
+                  : 'border border-red-500 focus:border-red-500 focus:ring-red-500'
               }`}
             />
             <div className="flex justify-between items-center mt-2">
@@ -297,14 +297,14 @@ function MultiStepInquiryForm() {
           <div className="flex justify-between pt-4">
             <button
               onClick={() => setStep(1)}
-              className="px-6 py-3 border border-slate-200 hover:border-slate-350 text-slate-600 rounded-lg text-sm font-bold transition-colors cursor-pointer"
+              className="px-6 py-3 border border-white/10 hover:border-white/20 text-slate-400 hover:text-white rounded-lg text-sm font-bold transition-colors cursor-pointer"
             >
               &larr; Back
             </button>
             <button
               onClick={() => message && isWordCountValid && setStep(3)}
               disabled={!message || !isWordCountValid}
-              className="px-6 py-3 bg-[#0066CC] disabled:bg-slate-200 disabled:cursor-not-allowed hover:bg-[#009BFF] text-white rounded-lg text-sm font-bold transition-all hover:shadow-lg hover:shadow-[#0066CC]/20 cursor-pointer"
+              className="px-6 py-3 bg-[#0066CC] disabled:bg-white/5 disabled:text-slate-500 disabled:cursor-not-allowed hover:bg-[#009BFF] text-white rounded-lg text-sm font-bold transition-all hover:shadow-lg hover:shadow-[#009BFF]/20 cursor-pointer"
             >
               Next Step &rarr;
             </button>
@@ -316,37 +316,37 @@ function MultiStepInquiryForm() {
       {step === 3 && (
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-bold text-slate-855 mb-1">
+            <h3 className="text-xl font-bold text-white mb-1">
               Step 3: Submit Inquiry
             </h3>
             <p className="text-xs text-slate-400">Please review your details before submitting.</p>
           </div>
 
-          <div className="bg-slate-50 rounded-lg p-5 border border-slate-100 space-y-3 text-sm">
+          <div className="bg-[#0A1A2F]/30 rounded-lg p-5 border border-white/5 space-y-3 text-sm">
             <div className="grid grid-cols-3">
               <span className="text-slate-400 font-bold uppercase text-[10px] tracking-wide">Name:</span>
-              <span className="col-span-2 text-slate-800 font-semibold">{name}</span>
+              <span className="col-span-2 text-slate-200 font-semibold">{name}</span>
             </div>
             <div className="grid grid-cols-3">
               <span className="text-slate-400 font-bold uppercase text-[10px] tracking-wide">Email:</span>
-              <span className="col-span-2 text-slate-800 font-semibold">{email}</span>
+              <span className="col-span-2 text-slate-200 font-semibold">{email}</span>
             </div>
             <div className="flex flex-col gap-1">
               <span className="text-slate-400 font-bold uppercase text-[10px] tracking-wide">Description:</span>
-              <span className="text-slate-700 bg-white border border-slate-150 rounded p-3 mt-1 whitespace-pre-wrap">{message}</span>
+              <span className="text-slate-300 bg-[#0A1A2F]/50 border border-white/5 rounded p-3 mt-1 whitespace-pre-wrap">{message}</span>
             </div>
           </div>
 
           <div className="flex justify-between pt-4">
             <button
               onClick={() => setStep(2)}
-              className="px-6 py-3 border border-slate-200 hover:border-slate-350 text-slate-600 rounded-lg text-sm font-bold transition-colors cursor-pointer"
+              className="px-6 py-3 border border-white/10 hover:border-white/20 text-slate-400 hover:text-white rounded-lg text-sm font-bold transition-colors cursor-pointer"
             >
               &larr; Back
             </button>
             <button
               onClick={handleSubmit}
-              className="px-8 py-3 bg-[#0066CC] hover:bg-[#009BFF] text-white rounded-lg text-sm font-bold transition-all hover:shadow-lg hover:shadow-[#0066CC]/20 cursor-pointer"
+              className="px-8 py-3 bg-[#0066CC] hover:bg-[#009BFF] text-white rounded-lg text-sm font-bold transition-all hover:shadow-lg hover:shadow-[#009BFF]/20 cursor-pointer"
             >
               Submit Inquiry
             </button>
