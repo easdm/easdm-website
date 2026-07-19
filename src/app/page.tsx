@@ -104,7 +104,7 @@ export default function Home() {
   }, [minimized]);
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 relative">
+    <main className="min-h-screen bg-transparent text-white relative">
       {/* Hero Video Container (Smooth Fade + Shrink + Disappear) */}
       <div
         ref={containerRef}
