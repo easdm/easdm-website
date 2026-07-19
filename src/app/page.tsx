@@ -153,13 +153,6 @@ export default function Home() {
         }`}
       >
         <Hero minimized={minimized} />
-        <FeaturedInsights />
-        <Services />
-        <Industries />
-        <CaseStudies />
-        <Mission />
-        <Values />
-        <Careers />
       </div>
     </main>
   );
