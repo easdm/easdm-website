@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ScrollReveal from "@/components/ScrollReveal";
+import BackButton from '@/components/BackButton';
 
 export default function ContactPage() {
   const [customerType, setCustomerType] = useState<'prompt' | 'new'>('prompt');
@@ -23,12 +24,7 @@ export default function ContactPage() {
       <div className="max-w-5xl mx-auto px-6">
         <div>
           <ScrollReveal animation="slide-up">
-            <button 
-              onClick={() => router.push('/getintouch')}
-              className="mb-8 flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors cursor-pointer"
-            >
-              &larr; Back to Selection
-            </button>
+            <BackButton fallbackPath="/getintouch" label="Back to Selection" />
             <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-6">
               Get in Touch
             </h1>

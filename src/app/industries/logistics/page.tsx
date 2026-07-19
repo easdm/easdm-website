@@ -1,10 +1,12 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import BackButton from "@/components/BackButton";
 
 export default function LogisticsIndustryPage() {
   return (
     <main className="min-h-screen bg-transparent text-white">
-      <section className="bg-[#0A1A2F]/40/40 backdrop-blur-md border-b border-white/5 text-white pt-32 pb-16">
+      <section className="bg-[#0A1A2F]/40 backdrop-blur-md border-b border-white/5 text-white pt-32 pb-16">
         <div className="mx-auto max-w-6xl px-6">
+          <BackButton fallbackPath="/industries" />
           <ScrollReveal animation="slide-up">
             <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-4">
               Logistics

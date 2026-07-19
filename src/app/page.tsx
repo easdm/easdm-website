@@ -12,12 +12,26 @@ import Careers from "@/components/Careers";
 import GetInTouchHero from "@/components/GetInTouchHero";
 
 export default function Home() {
-  const [minimized, setMinimized] = useState(false);
+  const [minimized, setMinimized] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('skip') === 'true';
+    }
+    return false;
+  });
   const [reduceMotion, setReduceMotion] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('skip') === 'true') {
+        setMinimized(true);
+      } else if (params.get('play') === 'true') {
+        setMinimized(false);
+      }
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setReduceMotion(true);
       setMinimized(true); // Skip animation entirely

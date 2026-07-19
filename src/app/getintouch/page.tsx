@@ -4,12 +4,17 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import ScrollReveal from "@/components/ScrollReveal";
 
+import BackButton from '@/components/BackButton';
+
 export default function GetInTouchMenuPage() {
   const router = useRouter();
 
   return (
-    <main className="min-h-screen bg-transparent text-white pt-32 pb-16 flex items-center justify-center animate-fade-in">
-      <div className="max-w-5xl mx-auto px-6 w-full">
+    <main className="min-h-screen bg-transparent text-white pt-32 pb-16 flex flex-col items-center justify-center animate-fade-in">
+      <div className="max-w-5xl mx-auto px-6 w-full flex flex-col items-center">
+        <div className="w-full max-w-xl text-left">
+          <BackButton fallbackPath="/?skip=true" />
+        </div>
         <ScrollReveal animation="slide-up">
           <div className="max-w-xl mx-auto bg-[#0A1A2F]/40 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-8 text-center space-y-8 py-12">
             <div className="space-y-3">

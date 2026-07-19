@@ -1,10 +1,15 @@
 import React from 'react';
 import Services from '@/components/Services';
 
+import BackButton from '@/components/BackButton';
+
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-transparent text-white pt-20 pb-16 flex items-center justify-center">
-      <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
+    <main className="min-h-screen bg-transparent text-white pt-24 pb-16 flex flex-col items-center justify-start">
+      <div className="w-full max-w-6xl px-6">
+        <BackButton fallbackPath="/?skip=true" />
+      </div>
+      <div className="w-full max-h-[calc(100vh-200px)] overflow-y-auto no-scrollbar">
         <Services />
       </div>
     </main>

@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import ScrollReveal from "@/components/ScrollReveal";
 
+import BackButton from '@/components/BackButton';
+
 export default function SupportPage() {
   const [supportArea, setSupportArea] = useState('azure');
   const [submitted, setSubmitted] = useState(false);
@@ -10,6 +12,7 @@ export default function SupportPage() {
   return (
     <main className="min-h-screen bg-transparent text-white pt-24 pb-12">
       <div className="max-w-5xl mx-auto px-6">
+        <BackButton fallbackPath="/getintouch" label="Back to Selection" />
         
         {submitted ? (
           <ScrollReveal animation="slide-up">

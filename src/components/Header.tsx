@@ -37,13 +37,12 @@ export default function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-[#050811]/30 backdrop-blur-md py-4 px-4 md:px-8 border-b border-white/5 transition-all duration-300"
     >
       <div className="mx-auto max-w-6xl px-6 flex items-center justify-between relative z-50">
-        {/* Logo / Brand */}
-        <a href="/" className="flex flex-col items-start group">
+        <Link href="/?play=true" className="flex flex-col items-start group">
           <span className="text-2xl font-black bg-gradient-to-r from-[#00E5FF] via-[#009BFF] to-[#0066CC] bg-clip-text text-transparent leading-none tracking-wider">EAS</span>
           <span className="text-[7.5px] sm:text-[9px] font-bold tracking-widest text-white uppercase mt-1.5 leading-none transition-opacity group-hover:opacity-80">
             Enterprise Application Solutions
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-6">
@@ -109,7 +108,7 @@ export default function Header() {
       {/* Mobile Menu Overlay Drawer */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[#050811]/98 backdrop-blur-xl flex flex-col justify-center items-center gap-8 py-20 px-6 overflow-y-auto">
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${isHome ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Home</Link>
+          <Link href="/?skip=true" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${isHome ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Home</Link>
           <Link href="/insights" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/insights' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Insights</Link>
           <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname.startsWith('/services') ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Services</Link>
           <Link href="/industries" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname.startsWith('/industries') ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Industries</Link>
