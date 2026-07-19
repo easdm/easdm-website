@@ -30,11 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#050811] text-white relative">
+      <body className="min-h-full flex flex-col bg-[#0A1A2F] text-white relative">
         {/* Global Blueprint Tech Grid Background */}
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-75" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,155,255,0.04),_transparent_75%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:40px_40px] opacity-75" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,155,255,0.05),_transparent_75%)]" />
         </div>
         <Header />
         <div className="flex-grow relative z-10">{children}</div>
