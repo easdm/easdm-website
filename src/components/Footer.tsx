@@ -15,6 +15,7 @@ export default function Footer() {
             <li><a href="/services" className="hover:text-white">Services</a></li>
             <li><a href="/industries" className="hover:text-white">Industries</a></li>
             <li><a href="/contact" className="hover:text-white">Contact</a></li>
+            <li><a href="/support" className="hover:text-white">Support Portal</a></li>
           </ul>
         </div>
         <div>
@@ -28,7 +29,7 @@ export default function Footer() {
         <div>
           <h4 className="text-xs font-semibold mb-2 text-white">Contact</h4>
           <p className="text-xs">
-            Business inquiries: <span className="font-semibold">contact@easllc.example</span>
+            Business inquiries: <a href="mailto:support@easdm.com" className="font-semibold hover:text-white transition-colors">support@easdm.com</a>
           </p>
         </div>
       </div>

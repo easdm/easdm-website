@@ -8,12 +8,12 @@ export default function SupportPage() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <main className="bg-[#050B14] text-white pt-24 pb-12 flex-grow">
+    <main className="min-h-screen bg-transparent text-white pt-24 pb-12">
       <div className="max-w-5xl mx-auto px-6">
         
         {submitted ? (
           <ScrollReveal animation="slide-up">
-            <div className="max-w-2xl mx-auto bg-[#0A1A2F] text-white border border-white/10 shadow-2xl rounded-2xl p-8 py-16 text-center space-y-6">
+            <div className="max-w-2xl mx-auto bg-[#0A1A2F]/40 backdrop-blur-md text-white border border-white/5 shadow-2xl rounded-2xl p-8 py-16 text-center space-y-6">
               <div className="w-16 h-16 bg-[#00E5FF]/10 border border-[#00E5FF]/30 rounded-full flex items-center justify-center mx-auto animate-pulse">
                 <svg className="w-8 h-8 text-[#00E5FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -29,7 +29,7 @@ export default function SupportPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Left Sidebar Info */}
             <ScrollReveal animation="slide-up" className="lg:col-span-1 space-y-6">
-              <div className="bg-[#0A1A2F]/50 border border-white/5 shadow-xl rounded-2xl p-6 space-y-6">
+              <div className="bg-[#0A1A2F]/40 border border-white/5 shadow-xl rounded-2xl p-6 space-y-6">
                 <div>
                   <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
                     Priority Support SLA
@@ -62,7 +62,7 @@ export default function SupportPage() {
             {/* Support Portal Form */}
             <div className="lg:col-span-2">
               <ScrollReveal animation="slide-up" className="delay-100">
-                <div className="bg-[#0A1A2F] border border-white/10 shadow-2xl rounded-2xl overflow-hidden">
+                <div className="bg-[#0A1A2F]/40 border border-white/5 shadow-2xl rounded-2xl overflow-hidden">
                   <div className="bg-gradient-to-r from-[#0066CC] to-[#009BFF] px-8 py-6">
                     <h2 className="text-2xl font-bold tracking-tight text-white">EAS Client Support Portal</h2>
                     <p className="text-xs text-slate-100 mt-1">Authorized corporate access and priority incident submission.</p>
@@ -104,7 +104,7 @@ export default function SupportPage() {
                         <select
                           value={supportArea}
                           onChange={(e) => setSupportArea(e.target.value)}
-                          className="w-full bg-[#0A1A2F] border border-white/10 focus:border-[#00E5FF] rounded-lg px-4 py-3 text-sm text-white focus:outline-none appearance-none transition-all cursor-pointer font-semibold"
+                          className="w-full bg-[#0A1A2F]/60 border border-white/10 focus:border-[#00E5FF] rounded-lg px-4 py-3 text-sm text-white focus:outline-none appearance-none transition-all cursor-pointer font-semibold"
                         >
                           <option value="azure">Azure Cloud Infrastructure Support</option>
                           <option value="entra">Entra ID & Zero-Trust Governance</option>
@@ -140,7 +140,7 @@ export default function SupportPage() {
                       </span>
                       <button
                         type="submit"
-                        className="w-full sm:w-auto rounded-lg bg-[#0066CC] hover:bg-[#009BFF] border border-white/10 px-8 py-3 text-sm font-bold text-white transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-lg shadow-[#0066CC]/20"
+                        className="w-full sm:w-auto rounded-lg bg-[#0066CC] hover:bg-[#009BFF] border border-white/10 px-8 py-3 text-sm font-bold text-white transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-lg shadow-[#009BFF]/20"
                       >
                         Authenticate & Open Ticket
                       </button>
