@@ -90,10 +90,10 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
   }, [nextSlide, isAutoplayPaused, minimized]);
 
   return (
-    <section className="relative h-screen md:min-h-[700px] lg:min-h-[750px] bg-[#050811] text-white overflow-hidden flex items-center pt-12 md:pt-0 pb-12 md:pb-0">
+    <section className="relative h-screen md:min-h-[700px] lg:min-h-[750px] bg-transparent text-white overflow-hidden flex items-center pt-12 md:pt-0 pb-12 md:pb-0">
       {/* Abstract Tech Grid Background */}
-      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,_transparent_40%,_#050811_95%)] pointer-events-none z-10" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-10" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-25 opacity-75" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,155,255,0.04),_transparent_75%)] pointer-events-none z-25" />
 
       {/* Slides Container - Horizontal Fade */}
       <div className="absolute inset-0 w-full h-full">

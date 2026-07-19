@@ -159,56 +159,56 @@ export default function Home() {
         </div>
 
         {/* Section 2: Insights */}
-        <div id="insights" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="insights" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <FeaturedInsights />
           </div>
         </div>
 
         {/* Section 3: Services */}
-        <div id="services" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="services" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <Services />
           </div>
         </div>
 
         {/* Section 4: Industries */}
-        <div id="industries" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="industries" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <Industries />
           </div>
         </div>
 
         {/* Section 5: Clients */}
-        <div id="clients" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="clients" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <CaseStudies />
           </div>
         </div>
 
         {/* Section 6: Mission */}
-        <div id="mission" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="mission" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <Mission />
           </div>
         </div>
 
         {/* Section 7: Commitment */}
-        <div id="commitment" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="commitment" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <Values />
           </div>
         </div>
 
         {/* Section 8: Careers */}
-        <div id="careers" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="careers" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <Careers />
           </div>
         </div>
 
         {/* Section 9: Contact Banner */}
-        <div id="contact-banner" className="w-full h-screen snap-start relative flex-shrink-0 bg-[#050811] text-white flex items-center justify-center pt-20 pb-16">
+        <div id="contact-banner" className="w-full h-screen snap-start relative flex-shrink-0 bg-transparent text-white flex items-center justify-center pt-20 pb-16">
           <div className="w-full max-h-[calc(100vh-140px)] overflow-y-auto no-scrollbar">
             <GetInTouchHero />
           </div>
