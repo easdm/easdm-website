@@ -8,8 +8,8 @@ export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isNewInquiry, setIsNewInquiry] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isNewInquiry = pathname === '/contact' || pathname === '/getintouch' || pathname === '/support';
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -31,18 +31,6 @@ export default function Header() {
       return () => window.removeEventListener('scroll', handleScroll);
     }
   }, [isHome]);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const handleCheck = () => {
-        const params = new URLSearchParams(window.location.search);
-        setIsNewInquiry(pathname === '/contact' && params.get('type') === 'new');
-      };
-      handleCheck();
-      const interval = setInterval(handleCheck, 150);
-      return () => clearInterval(interval);
-    }
-  }, [pathname]);
 
   return (
     <header 
@@ -87,21 +75,13 @@ export default function Header() {
             Careers
             <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/careers' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
           </Link>
-          <Link href="/support" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/support' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
-            Support
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/support' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-          </Link>
-          <Link href="/contact" className={`text-xs font-bold tracking-wider uppercase transition-colors relative group ${pathname === '/contact' ? 'text-[#009BFF]' : 'text-slate-300 hover:text-white'}`}>
-            Contact
-            <span className={`absolute bottom-[-4px] left-0 h-[2px] bg-[#009BFF] transition-all duration-300 ${pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`} />
-          </Link>
         </nav>
 
         {/* Action Button & Hamburger Toggle */}
         <div className="flex items-center gap-4">
           {!isNewInquiry && (
             <Link 
-              href="/contact?type=new" 
+              href="/getintouch" 
               className="hidden lg:block rounded-md bg-white/10 hover:bg-[#0066CC] border border-white/20 hover:border-[#009BFF] px-4 py-2 text-xs font-bold text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#0066CC]/20"
             >
               Get in Touch
@@ -137,8 +117,9 @@ export default function Header() {
           <Link href="/mission" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/mission' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Mission</Link>
           <Link href="/commitment" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/commitment' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Commitment</Link>
           <Link href="/careers" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/careers' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Careers</Link>
-          <Link href="/support" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/support' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Support</Link>
-          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className={`text-xl font-bold tracking-widest uppercase transition-colors ${pathname === '/contact' ? 'text-[#009BFF]' : 'text-slate-200 hover:text-[#009BFF]'}`}>Contact</Link>
+          {!isNewInquiry && (
+            <Link href="/getintouch" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-bold tracking-widest uppercase transition-colors text-slate-200 hover:text-[#009BFF]">Get in Touch</Link>
+          )}
         </div>
       )}
     </header>

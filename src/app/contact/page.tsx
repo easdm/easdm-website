@@ -19,87 +19,35 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <main className="bg-[#050811] text-white pt-24 pb-12 flex-grow min-h-screen">
+    <main className="bg-transparent text-white pt-24 pb-12 flex-grow min-h-screen">
       <div className="max-w-5xl mx-auto px-6">
-        
-        {/* Customer Type Prompt */}
-        {customerType === 'prompt' && (
+        <div>
           <ScrollReveal animation="slide-up">
-            <div className="max-w-xl mx-auto bg-[#0A1A2F]/40 backdrop-blur-md border border-white/5 shadow-2xl rounded-2xl p-8 text-center space-y-8 py-12">
-              <div className="space-y-3">
-                <h1 className="text-3xl font-extrabold text-white tracking-tight">
-                  Welcome to EAS
-                </h1>
-                <p className="text-sm text-slate-300 max-w-md mx-auto">
-                  To direct you to the correct department, please let us know if you are a current customer or a new inquiry.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={() => {
-                    setCustomerType('new');
-                    router.push('/contact?type=new');
-                  }}
-                  className="flex-1 rounded-xl border border-white/5 hover:border-[#009BFF]/30 p-6 text-center bg-[#0A1A2F]/20 hover:bg-[#0A1A2F]/40 transition-all duration-300 group cursor-pointer"
-                >
-                  <div className="w-10 h-10 rounded-full bg-[#009BFF]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 text-[#009BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-base font-bold text-white mb-1">New Inquiry</h3>
-                  <p className="text-xs text-slate-400">Request consultation, quotes, or bespoke application engineering.</p>
-                </button>
-
-                <button
-                  onClick={() => router.push('/support')}
-                  className="flex-1 rounded-xl border border-white/5 hover:border-[#009BFF]/30 p-6 text-center bg-[#0A1A2F]/20 hover:bg-[#0A1A2F]/40 transition-all duration-300 group cursor-pointer"
-                >
-                  <div className="w-10 h-10 rounded-full bg-[#009BFF]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <svg className="w-5 h-5 text-[#009BFF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-base font-bold text-white mb-1">Current Customer</h3>
-                  <p className="text-xs text-slate-400">Access support, view SLAs, or submit active technical tickets.</p>
-                </button>
-              </div>
-            </div>
+            <button 
+              onClick={() => router.push('/getintouch')}
+              className="mb-8 flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors cursor-pointer"
+            >
+              &larr; Back to Selection
+            </button>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-6">
+              Get in Touch
+            </h1>
+            <p className="text-lg text-slate-300 mb-12 max-w-3xl leading-relaxed">
+              We’re here to support your enterprise application needs. Reach out and our team will respond promptly.
+            </p>
           </ScrollReveal>
-        )}
 
-        {/* New Customer / Get In Touch Form */}
-        {customerType === 'new' && (
-          <div>
-            <ScrollReveal animation="slide-up">
-              <button 
-                onClick={() => setCustomerType('prompt')}
-                className="mb-8 flex items-center gap-2 text-xs font-bold text-slate-400 hover:text-white transition-colors cursor-pointer"
-              >
-                &larr; Back to Selection
-              </button>
-              <h1 className="text-4xl md:text-5xl font-black tracking-tight text-slate-800 mb-6">
-                Get in Touch
-              </h1>
-              <p className="text-lg text-slate-600 mb-12 max-w-3xl leading-relaxed">
-                We’re here to support your enterprise application needs. Reach out and our team will respond promptly.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <ScrollReveal animation="slide-up" className="delay-100">
+              <ContactSidebar />
             </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              <ScrollReveal animation="slide-up" className="delay-100">
-                <ContactSidebar />
+            <div className="md:col-span-2">
+              <ScrollReveal animation="slide-up" className="delay-200">
+                <MultiStepInquiryForm />
               </ScrollReveal>
-              <div className="md:col-span-2">
-                <ScrollReveal animation="slide-up" className="delay-200">
-                  <MultiStepInquiryForm />
-                </ScrollReveal>
-              </div>
             </div>
           </div>
-        )}
-
+        </div>
       </div>
     </main>
   );

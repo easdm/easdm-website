@@ -17,7 +17,7 @@ export default function GetInTouchHero() {
           </p>
           <div className="inline-block">
             <Link
-              href="/contact?type=new"
+              href="/getintouch"
               className="rounded-lg bg-white/10 hover:bg-[#0066CC] border border-white/20 hover:border-[#009BFF] px-8 py-4 text-sm font-bold text-white transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0066CC]/20 inline-flex items-center gap-2"
             >
               Contact EAS
