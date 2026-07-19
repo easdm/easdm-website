@@ -38,6 +38,32 @@ export default function Home() {
     }
   }, []);
 
+  // Load volume preference from localStorage on mount and check unmuted autoplay allowance
+  useEffect(() => {
+    if (minimized || reduceMotion) return;
+
+    if (typeof window !== 'undefined') {
+      const savedMute = localStorage.getItem('eas_video_muted');
+      const shouldMute = savedMute !== 'false'; // Default to true (muted) if not set to false
+      
+      setIsMuted(shouldMute);
+      if (videoRef.current) {
+        videoRef.current.muted = shouldMute;
+        if (!shouldMute) {
+          // Attempt unmuted play
+          videoRef.current.play().catch(() => {
+            // Fallback to muted autoplay if browser blocks unmuted audio on cold start
+            if (videoRef.current) {
+              videoRef.current.muted = true;
+              setIsMuted(true);
+              videoRef.current.play().catch((err) => console.log("Muted fallback play failed:", err));
+            }
+          });
+        }
+      }
+    }
+  }, [minimized, reduceMotion]);
+
   // Force scroll to top on mount to override browser scroll restoration
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -81,6 +107,7 @@ export default function Home() {
       if (videoRef.current && isMuted) {
         setIsMuted(false);
         videoRef.current.muted = false;
+        localStorage.setItem('eas_video_muted', 'false');
         videoRef.current.currentTime = 0;
         videoRef.current.play().catch((err) => console.log("Unmuted autoplay failed:", err));
       }
@@ -161,6 +188,7 @@ export default function Home() {
                 const nextMuted = !isMuted;
                 setIsMuted(nextMuted);
                 videoRef.current.muted = nextMuted;
+                localStorage.setItem('eas_video_muted', String(nextMuted));
                 videoRef.current.currentTime = 0;
                 videoRef.current.play().catch((err) => console.log("Play failed:", err));
               }
