@@ -112,7 +112,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
                   {/* Slide Text Content */}
                   <div className="flex-1 w-full text-left flex flex-col justify-center pt-4 md:pt-0">
                     {/* Staggered Badges */}
-                    <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
+                    <div className="flex flex-wrap gap-2 mb-4 md:mb-6 order-3 md:order-first">
                       {slide.techBadges.map((badge, idx) => (
                         <span 
                           key={badge} 
@@ -127,7 +127,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
                     </div>
 
                     {/* Masked Title Slide-Up */}
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-3 md:mb-6">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-none mb-3 md:mb-6 order-1 md:order-none">
                       <span className="clip-mask">
                         <span className={`inline-block bg-gradient-to-r from-white via-slate-100 to-white bg-clip-text text-transparent transition-all duration-[1000ms] ease-out ${
                           isActive ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
@@ -149,7 +149,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
 
                     {/* Subtitle Fade In */}
                     <p 
-                      className={`text-xs sm:text-sm md:text-base lg:text-lg text-slate-300 mb-4 md:mb-8 max-w-xl leading-relaxed transition-all duration-[1000ms] ease-out ${
+                      className={`text-xs sm:text-sm md:text-base lg:text-lg text-slate-300 mb-4 md:mb-8 max-w-xl leading-relaxed transition-all duration-[1000ms] ease-out order-2 md:order-none ${
                         isActive ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                       }`}
                       style={{ transitionDelay: isActive ? '300ms' : '0ms' }}
@@ -159,7 +159,7 @@ export default function Hero({ minimized = true }: { minimized?: boolean }) {
 
                     {/* Buttons Reveal */}
                     <div 
-                      className={`flex flex-wrap gap-4 transition-all duration-[1000ms] ease-out ${
+                      className={`flex flex-wrap gap-4 transition-all duration-[1000ms] ease-out order-4 md:order-none ${
                         isActive ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
                       }`}
                       style={{ transitionDelay: isActive ? '450ms' : '0ms' }}
