@@ -59,6 +59,33 @@ export default function Home() {
     };
   }, [minimized, reduceMotion]);
 
+  // Automatically unmute and restart from start on first user interaction anywhere on the screen
+  useEffect(() => {
+    if (minimized || reduceMotion) return;
+
+    const handleFirstInteraction = () => {
+      if (videoRef.current && isMuted) {
+        setIsMuted(false);
+        videoRef.current.muted = false;
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch((err) => console.log("Unmuted autoplay failed:", err));
+      }
+      cleanup();
+    };
+
+    const cleanup = () => {
+      document.removeEventListener('click', handleFirstInteraction);
+      document.removeEventListener('touchstart', handleFirstInteraction);
+      document.removeEventListener('keydown', handleFirstInteraction);
+    };
+
+    document.addEventListener('click', handleFirstInteraction);
+    document.addEventListener('touchstart', handleFirstInteraction);
+    document.addEventListener('keydown', handleFirstInteraction);
+
+    return cleanup;
+  }, [minimized, reduceMotion, isMuted]);
+
   // Block touch gestures on the video container to prevent address bar shifts/scrolling in Chrome/Edge
   useEffect(() => {
     const container = containerRef.current;
